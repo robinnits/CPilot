@@ -8,6 +8,8 @@ import ProfileCard from "./components/ProfileCard";
 
 import StatsCard from "./components/StatsCard";
 
+import SkillCard from "./components/SkillCard";
+
 
 
 function App(){
@@ -140,6 +142,18 @@ function App(){
                 analytics &&
 
                 <StatsCard analytics={analytics}/>
+            }
+
+            {
+
+            analytics &&
+
+            <SkillCard
+
+            skills={analytics.skillAnalysis}
+
+            />
+
             }
 
 
