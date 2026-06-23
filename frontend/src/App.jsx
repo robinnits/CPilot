@@ -22,25 +22,74 @@ function App(){
     const analyzeUser = async(handle)=>{
 
 
-        const userResponse =
-        await API.get(`/user/${handle}`);
+        try{
 
 
-        const analyticsResponse =
-        await API.get(
-            `/user/analytics/${handle}`
-        );
+            console.log(
+                "Searching:",
+                handle
+            );
+
+
+            const userResponse =
+            await API.get(
+                `/user/${handle}`
+            );
+
+
+            console.log(
+                "User:",
+                userResponse.data
+            );
 
 
 
-        setUser(
-            userResponse.data.data
-        );
+            const analyticsResponse =
+            await API.get(
+
+                `/user/analytics/${handle}`
+
+            );
 
 
-        setAnalytics(
-            analyticsResponse.data.data
-        );
+            console.log(
+                "Analytics:",
+                analyticsResponse.data
+            );
+
+
+
+            setUser(
+
+                userResponse.data.data
+
+            );
+
+
+            setAnalytics(
+
+                analyticsResponse.data.data
+
+            );
+
+
+
+        }
+
+
+        catch(error){
+
+
+            console.log(
+
+                "Frontend Error:",
+
+                error
+
+            );
+
+
+        }
 
 
     };
