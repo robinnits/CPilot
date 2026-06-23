@@ -4,23 +4,43 @@ import SearchBox from "./components/SearchBox";
 
 import API from "./services/api";
 
+import ProfileCard from "./components/ProfileCard";
+
+import StatsCard from "./components/StatsCard";
 
 
-function App() {
+
+function App(){
 
 
     const [user,setUser] = useState(null);
+
+    const [analytics,setAnalytics] = useState(null);
+
 
 
     const analyzeUser = async(handle)=>{
 
 
-        const response = await API.get(
-            `/user/${handle}`
+        const userResponse =
+        await API.get(`/user/${handle}`);
+
+
+        const analyticsResponse =
+        await API.get(
+            `/user/analytics/${handle}`
         );
 
 
-        setUser(response.data.data);
+
+        setUser(
+            userResponse.data.data
+        );
+
+
+        setAnalytics(
+            analyticsResponse.data.data
+        );
 
 
     };
@@ -37,45 +57,24 @@ function App() {
             </h1>
 
 
-            <SearchBox 
-                onSearch={analyzeUser}
+            <SearchBox
+            onSearch={analyzeUser}
             />
 
 
+
             {
-                user && (
+                user &&
 
-                    <div>
-
-
-                        <img 
-                        src={user.avatar}
-                        />
+                <ProfileCard user={user}/>
+            }
 
 
-                        <h2>
-                            {user.handle}
-                        </h2>
 
+            {
+                analytics &&
 
-                        <p>
-                            Rating: {user.rating}
-                        </p>
-
-
-                        <p>
-                            Rank: {user.rank}
-                        </p>
-
-
-                        <p>
-                            Max Rating: {user.maxRating}
-                        </p>
-
-
-                    </div>
-
-                )
+                <StatsCard analytics={analytics}/>
             }
 
 
