@@ -41,10 +41,8 @@ const generateRecommendations = (
     weakTopics.forEach(topic=>{
 
 
-        const selected = problems
-
-
-        .filter(problem=>{
+        // First filter valid problems
+        const filteredProblems = problems.filter(problem=>{
 
 
             return (
@@ -70,21 +68,58 @@ const generateRecommendations = (
             );
 
 
-        })
-
-
-        .sort((a,b)=>
-
-            a.rating - b.rating
-
-        )
-
-
-        .slice(0,5);
+        });
 
 
 
-        recommendations[topic] = selected;
+        // rating distribution
+        const targetRatings = [
+
+            minRating,
+
+            minRating + 100,
+
+            minRating + 200
+
+        ];
+
+
+
+        let selected = [];
+
+
+
+        targetRatings.forEach(rating=>{
+
+
+            const problemsAtRating = filteredProblems
+
+
+                .filter(problem=>
+
+                    problem.rating === rating
+
+                )
+
+
+                .slice(0,2);
+
+
+
+            selected.push(
+
+                ...problemsAtRating
+
+            );
+
+
+        });
+
+
+
+        recommendations[topic] =
+        selected.slice(0,5);
+
 
 
     });
