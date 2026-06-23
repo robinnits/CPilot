@@ -25,9 +25,12 @@ const generateRecommendations = (
 
 
 
-    const minRating = userRating + 100;
+    const minRating =
+    Math.ceil(userRating / 100) * 100;
 
-    const maxRating = userRating + 300;
+
+    const maxRating =
+    minRating + 300;
 
 
 
