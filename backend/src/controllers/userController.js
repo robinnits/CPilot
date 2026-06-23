@@ -89,8 +89,9 @@ const getUserAnalytics = async(req,res)=>{
         const total = submissions.length;
 
 
-        const accuracy = 
-        ((accepted/total)*100).toFixed(2);
+        const accuracy = total === 0 
+            ? 0 
+            : ((accepted / total) * 100).toFixed(2);
 
 
 
