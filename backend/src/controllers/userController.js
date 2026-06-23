@@ -65,6 +65,13 @@ const getUserAnalytics = async(req,res)=>{
 
         const handle = req.params.handle;
 
+        const user =
+        await codeforcesService.getUser(handle);
+
+
+        const userRating = 
+        user.rating || 800;
+
 
         const submissions = 
         await codeforcesService.getSubmissions(handle);
@@ -121,7 +128,9 @@ const getUserAnalytics = async(req,res)=>{
 
             problems,
 
-            solvedProblems
+            solvedProblems,
+
+            userRating
 
         );
 
