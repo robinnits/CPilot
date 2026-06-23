@@ -45,10 +45,14 @@ const getUserProfile = async(req,res)=>{
     catch(error){
 
 
-        res.status(500).json({
+        res.status(404).json({
+
 
             success:false,
-            message:"Cannot fetch user"
+
+
+            message:"Codeforces user not found"
+
 
         });
 
@@ -180,11 +184,14 @@ const getUserAnalytics = async(req,res)=>{
     catch(error){
 
 
-        res.status(500).json({
+        res.status(404).json({
+
 
             success:false,
 
-            message:"Analytics failed"
+
+            message:"Unable to analyze user"
+
 
         });
 
