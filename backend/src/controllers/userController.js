@@ -1,5 +1,11 @@
 const {
 
+    calculateSkillScore
+
+}=require("../analytics/skillAnalyzer");
+
+const {
+
     analyzeTopics
 
 }=require("../analytics/topicAnalyzer");
@@ -94,6 +100,9 @@ const getUserAnalytics = async(req,res)=>{
         const topicAnalysis = 
         analyzeTopics(submissions);
 
+        const skillAnalysis =
+        calculateSkillScore(topicAnalysis);
+
         const total = submissions.length;
 
 
@@ -113,6 +122,8 @@ const getUserAnalytics = async(req,res)=>{
                 handle:handle,
 
                 topicAnalysis:topicAnalysis,
+
+                skillAnalysis:skillAnalysis,
 
                 totalSubmissions:total,
 
