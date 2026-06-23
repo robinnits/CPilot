@@ -16,26 +16,66 @@ const getUser = async(handle)=>{
 const getSubmissions = async(handle)=>{
 
 
-    const response = await axios.get(
-
-        `https://codeforces.com/api/user.status?handle=${handle}`
-
-    );
+    try{
 
 
-    return response.data.result;
+        const response = await axios.get(
+
+            `https://codeforces.com/api/user.status?handle=${handle}`
+
+        );
+
+
+        return response.data.result;
+
+
+    }
+
+
+    catch(error){
+
+
+        throw new Error(
+            "Codeforces API unavailable"
+        );
+
+
+    }
+
 
 };
 
 const getProblems = async()=>{
 
 
-    const response = await axios.get(
+    try{
+
+
+        const response = await axios.get(
+
         "https://codeforces.com/api/problemset.problems"
-    );
+
+        );
 
 
-    return response.data.result.problems;
+        return response.data.result.problems;
+
+
+    }
+
+
+    catch(error){
+
+
+        throw new Error(
+
+        "Unable to fetch Codeforces problems"
+
+        );
+
+
+    }
+
 
 };
 
