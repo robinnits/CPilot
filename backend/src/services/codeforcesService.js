@@ -27,8 +27,20 @@ const getSubmissions = async(handle)=>{
 
 };
 
+const getProblems = async()=>{
+
+
+    const response = await axios.get(
+        "https://codeforces.com/api/problemset.problems"
+    );
+
+
+    return response.data.result.problems;
+
+};
 
 module.exports = {
     getUser,
-    getSubmissions
+    getSubmissions,
+    getProblems
 };
