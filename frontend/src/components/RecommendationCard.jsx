@@ -7,7 +7,7 @@ function RecommendationCard({recommendations}){
 
 
             <h2>
-                Recommended Training 🚀
+                Training Plan 🚀
             </h2>
 
 
@@ -16,75 +16,154 @@ function RecommendationCard({recommendations}){
 
                 Object.entries(recommendations)
 
-                .map(([topic,problems])=>(
+                .map(([topic, problems])=>{
 
 
-                    <div key={topic}>
+                    const groupedProblems = {
 
 
-                        <h3>
-                            {topic}
-                        </h3>
+                        Warmup: problems.filter(
+
+                            problem =>
+                            problem.zone === "Warmup"
+
+                        ),
 
 
-                        {
+                        Growth: problems.filter(
 
-                            problems.map(problem=>(
+                            problem =>
+                            problem.zone === "Growth"
 
-
-                                <div
-                                key={
-                                    problem.contestId +
-                                    problem.index
-                                }
-                                >
+                        ),
 
 
-                                    <p>
+                        Challenge: problems.filter(
 
-                                        {problem.name}
+                            problem =>
+                            problem.zone === "Challenge"
 
-                                    </p>
+                        )
 
 
-                                    <p>
-
-                                    Rating:
-                                    {problem.rating}
-
-                                    </p>
+                    };
 
 
 
-                                    <a
+                    return (
 
-                                    href={
+
+                        <div key={topic}>
+
+
+                            <h3>
+                                {topic}
+                            </h3>
+
+
+
+
+                            {
+
+                                Object.entries(groupedProblems)
+
+                                .map(([zone, zoneProblems])=>(
+
+
+                                    <div key={zone}>
+
+
+                                        <h4>
+                                            {zone}
+                                        </h4>
+
+
+
+                                        {
+
+                                        zoneProblems.map(problem=>(
+
+
+
+                                            <div
+
+                                            key={
+
+                                                problem.contestId +
+
+                                                problem.index
+
+                                            }
+
+                                            >
+
+
+
+                                                <p>
+
+
+                                                    {problem.rating}
+
+                                                    {" - "}
+
+                                                    {problem.name}
+
+
+                                                </p>
+
+
+
+                                                <a
+
+
+                                                href={
+
 `https://codeforces.com/problemset/problem/${problem.contestId}/${problem.index}`
-                                    }
 
-                                    target="_blank"
-
-                                    >
-
-                                    Solve
-
-                                    </a>
+                                                }
 
 
-
-                                </div>
-
-
-                            ))
+                                                target="_blank"
 
 
-                        }
+                                                >
 
 
-                    </div>
+                                                    Solve on Codeforces
 
 
-                ))
+                                                </a>
+
+
+
+                                            </div>
+
+
+
+                                        ))
+
+                                        }
+
+
+
+                                    </div>
+
+
+
+                                ))
+
+                            }
+
+
+
+
+                        </div>
+
+
+                    );
+
+
+                })
 
             }
 
@@ -92,10 +171,12 @@ function RecommendationCard({recommendations}){
 
         </div>
 
+
     );
 
 
 }
+
 
 
 export default RecommendationCard;
