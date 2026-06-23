@@ -89,7 +89,9 @@ const generateRecommendations = (
                     baseRating - 200
                 ),
 
-                count:1
+                count:1,
+
+                zone:"Warmup"
             },
 
 
@@ -99,28 +101,36 @@ const generateRecommendations = (
                     baseRating - 100
                 ),
 
-                count:1
+                count:1,
+
+                zone:"Warmup"
             },
 
 
             {
                 rating: baseRating,
 
-                count:1
+                count:1,
+
+                zone:"Growth"
             },
 
 
             {
                 rating: baseRating + 100,
 
-                count:1
+                count:1,
+
+                zone:"Growth"
             },
 
 
             {
                 rating: baseRating + 200,
 
-                count:1
+                count:1,
+
+                zone:"Challenge"
             }
 
 
@@ -156,9 +166,25 @@ const generateRecommendations = (
 
 
 
+            const problemsWithZone =
+            problemsAtRating.map(problem=>{
+
+
+                return {
+
+                    ...problem,
+
+                    zone: level.zone
+
+                };
+
+
+            });
+
+
             selected.push(
 
-                ...problemsAtRating
+                ...problemsWithZone
 
             );
 
