@@ -14,12 +14,14 @@ function App(){
 
 
     const [user,setUser] = useState(null);
+    const [error,setError] = useState("");
 
     const [analytics,setAnalytics] = useState(null);
 
 
 
     const analyzeUser = async(handle)=>{
+        setError("");
 
 
         try{
@@ -81,10 +83,15 @@ function App(){
 
 
             console.log(
+                error.response?.data
+            );
 
-                "Frontend Error:",
 
-                error
+            setError(
+
+                error.response?.data?.message
+                ||
+                "Something went wrong 😢"
 
             );
 
@@ -109,7 +116,14 @@ function App(){
             <SearchBox
             onSearch={analyzeUser}
             />
+            {
+            error &&
 
+            <p>
+                {error}
+            </p>
+
+            }
 
 
             {
