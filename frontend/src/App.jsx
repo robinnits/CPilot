@@ -22,6 +22,8 @@ function App(){
 
     const analyzeUser = async(handle)=>{
         setError("");
+        setUser(null);
+        setAnalytics(null);
 
 
         try{
