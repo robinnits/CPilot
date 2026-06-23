@@ -4,11 +4,18 @@ const router = express.Router();
 
 
 const {
-    getUserProfile
+    getUserProfile,
+    getUserAnalytics
 } = require("../controllers/userController");
 
 
-router.get("/:handle", getUserProfile);
+router.get(
+
+"/analytics/:handle",
+
+getUserAnalytics
+
+);
 
 
 module.exports = router;
