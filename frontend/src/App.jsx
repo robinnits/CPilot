@@ -10,6 +10,9 @@ import StatsCard from "./components/StatsCard";
 
 import SkillCard from "./components/SkillCard";
 
+import RecommendationCard 
+from "./components/RecommendationCard";
+
 
 
 function App(){
@@ -151,6 +154,20 @@ function App(){
             <SkillCard
 
             skills={analytics.skillAnalysis}
+
+            />
+
+            }
+
+            {
+
+            analytics &&
+
+            <RecommendationCard
+
+            recommendations={
+            analytics.recommendations
+            }
 
             />
 
