@@ -1,3 +1,9 @@
+const {
+
+    analyzeTopics
+
+}=require("../analytics/topicAnalyzer");
+
 const codeforcesService =
 require("../services/codeforcesService");
 
@@ -85,6 +91,8 @@ const getUserAnalytics = async(req,res)=>{
         });
 
 
+        const topicAnalysis = 
+        analyzeTopics(submissions);
 
         const total = submissions.length;
 
@@ -103,6 +111,8 @@ const getUserAnalytics = async(req,res)=>{
             data:{
 
                 handle:handle,
+
+                topicAnalysis:topicAnalysis,
 
                 totalSubmissions:total,
 
