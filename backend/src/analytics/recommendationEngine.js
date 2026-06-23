@@ -25,12 +25,16 @@ const generateRecommendations = (
 
 
 
-    const minRating =
+    const baseRating =
     Math.ceil(userRating / 100) * 100;
 
 
+    const minRating =
+    Math.max(800, baseRating - 200);
+
+
     const maxRating =
-    minRating + 300;
+    baseRating + 200;
 
 
 
@@ -41,7 +45,6 @@ const generateRecommendations = (
     weakTopics.forEach(topic=>{
 
 
-        // First filter valid problems
         const filteredProblems = problems.filter(problem=>{
 
 
@@ -72,14 +75,54 @@ const generateRecommendations = (
 
 
 
-        // rating distribution
+        const baseRating =
+        Math.ceil(userRating / 100) * 100;
+
+
+
         const targetRatings = [
 
-            minRating,
 
-            minRating + 100,
+            {
+                rating: Math.max(
+                    800,
+                    baseRating - 200
+                ),
 
-            minRating + 200
+                count:1
+            },
+
+
+            {
+                rating: Math.max(
+                    800,
+                    baseRating - 100
+                ),
+
+                count:1
+            },
+
+
+            {
+                rating: baseRating,
+
+                count:1
+            },
+
+
+            {
+                rating: baseRating + 100,
+
+                count:1
+            },
+
+
+            {
+                rating: baseRating + 200,
+
+                count:1
+            }
+
 
         ];
 
@@ -89,20 +132,27 @@ const generateRecommendations = (
 
 
 
-        targetRatings.forEach(rating=>{
+        targetRatings.forEach(level=>{
 
 
-            const problemsAtRating = filteredProblems
+            const problemsAtRating =
+            filteredProblems
 
 
-                .filter(problem=>
+            .filter(problem=>
 
-                    problem.rating === rating
+                problem.rating === level.rating
 
-                )
+            )
 
 
-                .slice(0,2);
+            .slice(
+
+                0,
+
+                level.count
+
+            );
 
 
 
