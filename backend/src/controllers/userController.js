@@ -181,17 +181,14 @@ const getUserAnalytics = async(req,res)=>{
     }
 
 
-    catch(error){
+   catch(error){
 
 
-        res.status(404).json({
-
+        res.status(500).json({
 
             success:false,
 
-
-            message:"Unable to analyze user"
-
+            message:error.message
 
         });
 
