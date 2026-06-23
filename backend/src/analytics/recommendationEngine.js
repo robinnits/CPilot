@@ -1,18 +1,18 @@
 const generateRecommendations = (
     skillAnalysis,
     problems,
-    solvedSet
+    solvedSet,
+    userRating
 )=>{
 
 
     let weakTopics = [];
 
 
-
     for(let topic in skillAnalysis){
 
 
-        if(skillAnalysis[topic].level==="Weak"){
+        if(skillAnalysis[topic].level === "Weak"){
 
 
             weakTopics.push(topic);
@@ -25,6 +25,12 @@ const generateRecommendations = (
 
 
 
+    const minRating = userRating + 100;
+
+    const maxRating = userRating + 300;
+
+
+
     let recommendations = {};
 
 
@@ -34,10 +40,13 @@ const generateRecommendations = (
 
         const selected = problems
 
+
         .filter(problem=>{
 
 
             return (
+
+                problem.contestId &&
 
                 problem.tags &&
 
@@ -45,11 +54,13 @@ const generateRecommendations = (
 
                 problem.rating &&
 
-                problem.rating <= 1400 &&
+                problem.rating >= minRating &&
+
+                problem.rating <= maxRating &&
 
                 !solvedSet.has(
 
-                    problem.contestId+"-"+problem.index
+                    problem.contestId + "-" + problem.index
 
                 )
 
@@ -59,11 +70,18 @@ const generateRecommendations = (
         })
 
 
+        .sort((a,b)=>
+
+            a.rating - b.rating
+
+        )
+
+
         .slice(0,5);
 
 
 
-        recommendations[topic]=selected;
+        recommendations[topic] = selected;
 
 
     });
