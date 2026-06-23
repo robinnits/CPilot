@@ -11,9 +11,19 @@ const {
 
 router.get(
 
-"/analytics/:handle",
+    "/analytics/:handle",
 
-getUserAnalytics
+    getUserAnalytics
+
+);
+
+
+
+router.get(
+
+    "/:handle",
+
+    getUserProfile
 
 );
 
