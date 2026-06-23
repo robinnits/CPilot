@@ -1,5 +1,11 @@
 const {
 
+    generateRecommendations
+
+}=require("../analytics/recommendationEngine");
+
+const {
+
     calculateSkillScore
 
 }=require("../analytics/skillAnalyzer");
@@ -103,6 +109,22 @@ const getUserAnalytics = async(req,res)=>{
         const skillAnalysis =
         calculateSkillScore(topicAnalysis);
 
+        const problems =
+        await codeforcesService.getProblems();
+
+
+
+        const recommendations =
+        generateRecommendations(
+
+            skillAnalysis,
+
+            problems,
+
+            solvedProblems
+
+        );
+
         const total = submissions.length;
 
 
@@ -124,6 +146,8 @@ const getUserAnalytics = async(req,res)=>{
                 topicAnalysis:topicAnalysis,
 
                 skillAnalysis:skillAnalysis,
+
+                recommendations:recommendations,
 
                 totalSubmissions:total,
 
