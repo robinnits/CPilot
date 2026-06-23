@@ -102,16 +102,17 @@ const getUserAnalytics = async(req,res)=>{
 
             data:{
 
+                handle:handle,
 
                 totalSubmissions:total,
 
                 acceptedSubmissions:accepted,
 
+                wrongSubmissions: total - accepted,
+
                 solvedProblems:solvedProblems.size,
 
                 accuracy:accuracy
-
-
             }
 
 
