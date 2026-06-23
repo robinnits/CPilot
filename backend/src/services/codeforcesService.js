@@ -13,7 +13,22 @@ const getUser = async(handle)=>{
 
 };
 
+const getSubmissions = async(handle)=>{
+
+
+    const response = await axios.get(
+
+        `https://codeforces.com/api/user.status?handle=${handle}`
+
+    );
+
+
+    return response.data.result;
+
+};
+
 
 module.exports = {
-    getUser
+    getUser,
+    getSubmissions
 };
