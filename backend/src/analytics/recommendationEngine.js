@@ -4,13 +4,20 @@ const {
 
 }=require("./rankSkillMap");
 
-const generateRecommendations = (
-    skillAnalysis,
-    problems,
-    solvedSet,
-    userRating
-)=>{
 
+
+
+const generateRecommendations = (
+
+    skillAnalysis,
+
+    problems,
+
+    solvedSet,
+
+    userRating
+
+)=>{
 
     const targetSkills =
     getTargetSkills(userRating);
@@ -51,18 +58,28 @@ const generateRecommendations = (
     }
 
 
+    weakTopics =
+    weakTopics.slice(0,5);
+
 
     const baseRating =
     Math.ceil(userRating / 100) * 100;
 
 
+
     const minRating =
-    Math.max(800, baseRating - 200);
+    Math.max(
+
+        800,
+
+        baseRating - 200
+
+    );
+
 
 
     const maxRating =
     baseRating + 200;
-
 
 
     let recommendations = {};
@@ -72,30 +89,46 @@ const generateRecommendations = (
     weakTopics.forEach(topic=>{
 
 
-        const filteredProblems = problems.filter(problem=>{
+
+        const filteredProblems =
+
+        problems.filter(problem=>{
+
 
 
             return (
 
                 problem.contestId &&
 
+
                 problem.tags &&
+
 
                 problem.tags.includes(topic) &&
 
+
                 problem.rating &&
+
 
                 problem.rating >= minRating &&
 
+
                 problem.rating <= maxRating &&
+
 
                 !solvedSet.has(
 
-                    problem.contestId + "-" + problem.index
+                    problem.contestId +
+
+                    "-" +
+
+                    problem.index
 
                 )
 
+
             );
+
 
 
         });
@@ -105,55 +138,96 @@ const generateRecommendations = (
         const targetRatings = [
 
 
+
             {
-                rating: Math.max(
+
+                rating:Math.max(
+
                     800,
+
                     baseRating - 200
+
                 ),
+
 
                 count:1,
 
+
                 zone:"Warmup"
+
+
             },
 
 
+
+
             {
-                rating: Math.max(
+
+                rating:Math.max(
+
                     800,
+
                     baseRating - 100
+
                 ),
 
+
                 count:1,
+
 
                 zone:"Warmup"
+
+
             },
 
 
+
+
             {
-                rating: baseRating,
+
+                rating:baseRating,
+
 
                 count:1,
+
 
                 zone:"Growth"
+
+
             },
 
 
+
+
             {
-                rating: baseRating + 100,
+
+                rating:baseRating + 100,
+
 
                 count:1,
+
 
                 zone:"Growth"
+
+
             },
 
 
+
+
             {
-                rating: baseRating + 200,
+
+                rating:baseRating + 200,
+
 
                 count:1,
+
 
                 zone:"Challenge"
+
+
             }
+
 
 
         ];
@@ -167,13 +241,17 @@ const generateRecommendations = (
         targetRatings.forEach(level=>{
 
 
+
             const problemsAtRating =
+
             filteredProblems
 
 
             .filter(problem=>
 
+
                 problem.rating === level.rating
+
 
             )
 
@@ -189,49 +267,49 @@ const generateRecommendations = (
 
 
             const problemsWithZone =
+
             problemsAtRating.map(problem=>{
+
 
 
                 return {
 
+
                     ...problem,
 
-                    zone: level.zone
+
+                    zone:level.zone
+
 
                 };
+
 
 
             });
 
 
+
             selected.push(
+
 
                 ...problemsWithZone
 
+
             );
+
 
 
         });
 
 
-        if(weakTopics.length === 0){
-
-
-            weakTopics =
-            targetSkills.slice(0,3);
-
-
-        }
-
-
-        weakTopics =
-        weakTopics.slice(0,5);
-
         if(selected.length > 0){
 
 
+
             recommendations[topic] =
+
             selected.slice(0,5);
+
 
 
         }
@@ -241,7 +319,9 @@ const generateRecommendations = (
 
 
 
+
     return recommendations;
+
 
 
 };
