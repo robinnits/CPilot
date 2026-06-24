@@ -1,15 +1,6 @@
-const {
-
-    getTargetSkills
-
-}=require("./rankSkillMap");
-
-
-
-
 const generateRecommendations = (
 
-    skillAnalysis,
+    focusAreas,
 
     problems,
 
@@ -19,55 +10,34 @@ const generateRecommendations = (
 
 )=>{
 
-    const targetSkills =
-    getTargetSkills(userRating);
+
+
+    const trainingTopics =
+
+    focusAreas
+
+    .map(area=>
+
+        area.skill
+
+    )
+
+    .slice(0,5);
 
 
 
-    let weakTopics = [];
-
-
-
-    targetSkills.forEach(skill=>{
-
-
-        if(
-
-            !skillAnalysis[skill] ||
-
-            skillAnalysis[skill].level === "Weak"
-
-        ){
-
-
-            weakTopics.push(skill);
-
-
-        }
-
-
-    });
-
-    if(weakTopics.length === 0){
-
-
-        weakTopics =
-        targetSkills.slice(0,3);
-
-
-    }
-
-
-    weakTopics =
-    weakTopics.slice(0,5);
 
 
     const baseRating =
+
     Math.ceil(userRating / 100) * 100;
 
 
 
+
+
     const minRating =
+
     Math.max(
 
         800,
@@ -78,15 +48,27 @@ const generateRecommendations = (
 
 
 
+
+
     const maxRating =
+
     baseRating + 200;
+
+
+
+
 
 
     let recommendations = {};
 
 
 
-    weakTopics.forEach(topic=>{
+
+
+
+    trainingTopics.forEach(topic=>{
+
+
 
 
 
@@ -96,7 +78,10 @@ const generateRecommendations = (
 
 
 
+
+
             return (
+
 
                 problem.contestId &&
 
@@ -131,7 +116,13 @@ const generateRecommendations = (
 
 
 
+
+
         });
+
+
+
+
 
 
 
@@ -139,9 +130,10 @@ const generateRecommendations = (
 
 
 
+
             {
 
-                rating:Math.max(
+                rating: Math.max(
 
                     800,
 
@@ -155,15 +147,15 @@ const generateRecommendations = (
 
                 zone:"Warmup"
 
-
             },
+
 
 
 
 
             {
 
-                rating:Math.max(
+                rating: Math.max(
 
                     800,
 
@@ -177,15 +169,15 @@ const generateRecommendations = (
 
                 zone:"Warmup"
 
-
             },
+
 
 
 
 
             {
 
-                rating:baseRating,
+                rating: baseRating,
 
 
                 count:1,
@@ -193,15 +185,15 @@ const generateRecommendations = (
 
                 zone:"Growth"
 
-
             },
+
 
 
 
 
             {
 
-                rating:baseRating + 100,
+                rating: baseRating + 100,
 
 
                 count:1,
@@ -209,15 +201,15 @@ const generateRecommendations = (
 
                 zone:"Growth"
 
-
             },
+
 
 
 
 
             {
 
-                rating:baseRating + 200,
+                rating: baseRating + 200,
 
 
                 count:1,
@@ -225,8 +217,8 @@ const generateRecommendations = (
 
                 zone:"Challenge"
 
-
             }
+
 
 
 
@@ -234,11 +226,19 @@ const generateRecommendations = (
 
 
 
+
+
+
         let selected = [];
 
 
 
+
+
+
         targetRatings.forEach(level=>{
+
+
 
 
 
@@ -249,9 +249,7 @@ const generateRecommendations = (
 
             .filter(problem=>
 
-
                 problem.rating === level.rating
-
 
             )
 
@@ -266,9 +264,15 @@ const generateRecommendations = (
 
 
 
+
+
+
+
             const problemsWithZone =
 
             problemsAtRating.map(problem=>{
+
+
 
 
 
@@ -278,10 +282,12 @@ const generateRecommendations = (
                     ...problem,
 
 
-                    zone:level.zone
+                    zone: level.zone
 
 
                 };
+
+
 
 
 
@@ -289,17 +295,25 @@ const generateRecommendations = (
 
 
 
+
+
+
             selected.push(
 
-
                 ...problemsWithZone
-
 
             );
 
 
 
+
+
         });
+
+
+
+
+
 
 
         if(selected.length > 0){
@@ -308,14 +322,20 @@ const generateRecommendations = (
 
             recommendations[topic] =
 
-            selected.slice(0,5);
+            selected;
 
 
 
         }
 
 
+
+
+
     });
+
+
+
 
 
 
@@ -324,7 +344,10 @@ const generateRecommendations = (
 
 
 
+
 };
+
+
 
 
 
