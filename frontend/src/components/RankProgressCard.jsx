@@ -1,4 +1,10 @@
-function RankProgressCard({rankProgress}){
+function RankProgressCard({
+
+    rankProgress,
+
+    focusAnalysis
+
+}){
 
 
     return (
@@ -12,6 +18,7 @@ function RankProgressCard({rankProgress}){
 
 
 
+
             <h3>
 
                 {rankProgress.currentRating}
@@ -21,6 +28,7 @@ function RankProgressCard({rankProgress}){
                 {rankProgress.targetRating}
 
             </h3>
+
 
 
 
@@ -38,6 +46,7 @@ function RankProgressCard({rankProgress}){
 
 
 
+
             <p>
 
                 Need +
@@ -52,18 +61,22 @@ function RankProgressCard({rankProgress}){
 
 
 
+
             <h3>
 
-                Focus Areas 🧠
+                Priority Focus 🎯
 
             </h3>
 
 
 
 
+
+
             {
 
-                rankProgress.focusAreas.map(skill=>(
+
+                focusAnalysis.focusAreas.map(skill=>(
 
 
                     <div key={skill.skill}>
@@ -88,6 +101,7 @@ function RankProgressCard({rankProgress}){
 
 
 
+
                         <p>
 
                             {skill.level}
@@ -106,7 +120,9 @@ function RankProgressCard({rankProgress}){
 
 
 
+
         </div>
+
 
     );
 
