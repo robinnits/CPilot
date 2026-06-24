@@ -258,7 +258,9 @@ function App(){
 
             <SkillCard
 
-            skills={analytics.skillAnalysis}
+            focusAnalysis={
+            analytics.focusAnalysis
+            }
 
             />
 
