@@ -1,3 +1,6 @@
+const { analyzeRatingHistory } =
+require("../analytics/ratingHistoryAnalyzer");
+
 const { analyzeVerdicts } =
 require("../analytics/verdictAnalyzer");
 
@@ -91,6 +94,18 @@ const getUserAnalytics = async(req,res)=>{
 
         const submissions = 
         await codeforcesService.getSubmissions(handle);
+
+        const ratingHistoryRaw = 
+        await codeforcesService.getRatingHistory(handle);
+
+
+
+        const ratingHistory =
+        analyzeRatingHistory(
+
+            ratingHistoryRaw
+
+        );
 
 
 
@@ -201,6 +216,9 @@ const getUserAnalytics = async(req,res)=>{
 
 
             verdictStats:verdictStats,
+
+
+            ratingHistory:ratingHistory,
 
 
             totalSubmissions:total,
