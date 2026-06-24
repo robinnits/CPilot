@@ -1,60 +1,111 @@
 import { useState } from "react";
 
 
+
 function SearchBox({ onSearch }) {
+
 
     const [handle, setHandle] = useState("");
 
 
+
     const handleSubmit = () => {
 
+
         if(handle.trim() !== ""){
-            onSearch(handle);
+
+
+            onSearch(
+
+                handle.trim()
+
+            );
+
+
         }
+
 
     };
 
 
+
+
     return (
 
+
         <div>
+
+
 
             <input
 
 
-            value={handle}
+                type="text"
 
 
-            onChange={(e)=>
-
-                setHandle(e.target.value)
-
-            }
+                placeholder="Enter Codeforces handle"
 
 
-            onKeyDown={(e)=>{
+                value={handle}
 
 
-                if(e.key==="Enter"){
 
+                onChange={(e)=>
 
-                    analyzeUser();
+                    setHandle(
 
+                        e.target.value
+
+                    )
 
                 }
 
 
-            }}
+
+                onKeyDown={(e)=>{
+
+
+                    if(e.key === "Enter"){
+
+
+                        handleSubmit();
+
+
+                    }
+
+
+                }}
 
 
             />
 
 
+
+
+
+            <button
+
+                onClick={handleSubmit}
+
+            >
+
+
+                Analyze
+
+
+            </button>
+
+
+
+
         </div>
+
 
     );
 
+
 }
+
 
 
 export default SearchBox;
