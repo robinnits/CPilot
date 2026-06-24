@@ -1,11 +1,4 @@
-function SkillCard({skills}){
-
-
-    const sortedSkills =
-    Object.entries(skills)
-    .sort(
-        (a,b)=>a[1].score-b[1].score
-    );
+function SkillCard({focusAnalysis}){
 
 
     return (
@@ -13,39 +6,71 @@ function SkillCard({skills}){
         <div>
 
 
+            <h2>
+                Skill Analysis 🧠
+            </h2>
+
+
+
+
+
             <h3>
-                Weakness Analysis 🧠
+                Priority Focus 🎯
             </h3>
+
+
 
 
 
             {
 
-                sortedSkills
-                .slice(0,5)
-                .map(([topic,data])=>(
+                focusAnalysis.focusAreas.length === 0
+
+                ?
+
+                <p>
+                    Great! No major priority weakness 🎉
+                </p>
+
+                :
+
+                focusAnalysis.focusAreas.map(skill=>(
 
 
-                    <div key={topic}>
+                    <div key={skill.skill}>
 
 
                         <h4>
-                            {topic}
+
+                            {skill.skill}
+
                         </h4>
 
 
+
                         <p>
-                            Level: {data.level}
+
+                            Score:
+
+                            {" "}
+
+                            {skill.score}
+
+                            /100
+
                         </p>
 
 
-                        <p>
-                            Score: {data.score}/100
-                        </p>
 
 
                         <p>
-                            Accuracy: {data.accuracy}%
+
+                            Status:
+
+                            {" "}
+
+                            {skill.level}
+
                         </p>
 
 
@@ -58,7 +83,90 @@ function SkillCard({skills}){
             }
 
 
+
+
+
+
+
+            <h3>
+
+                Other Weakness 🧠
+
+            </h3>
+
+
+
+
+
+
+            {
+
+                focusAnalysis.otherWeakness.length === 0
+
+                ?
+
+                <p>
+
+                    No other major weakness 🚀
+
+                </p>
+
+                :
+
+                focusAnalysis.otherWeakness.map(skill=>(
+
+
+                    <div key={skill.skill}>
+
+
+                        <h4>
+
+                            {skill.skill}
+
+                        </h4>
+
+
+
+
+                        <p>
+
+                            Score:
+
+                            {" "}
+
+                            {skill.score}
+
+                            /100
+
+                        </p>
+
+
+
+
+                        <p>
+
+                            Status:
+
+                            {" "}
+
+                            {skill.level}
+
+                        </p>
+
+
+
+                    </div>
+
+
+                ))
+
+            }
+
+
+
+
         </div>
+
 
     );
 
