@@ -1,3 +1,6 @@
+const { analyzeHeatmap } =
+require("../analytics/heatmapAnalyzer");
+
 const {analyzeTags} =
 require("../analytics/tagAnalyzer");
 
@@ -129,6 +132,9 @@ const getUserAnalytics = async(req,res)=>{
         const tagStats =
         analyzeTags(submissions);
 
+        const heatmapStats =
+        analyzeHeatmap(submissions);
+
         const skillAnalysis =
         calculateSkillScore(topicAnalysis);
 
@@ -181,7 +187,11 @@ const getUserAnalytics = async(req,res)=>{
 
             ratingStats:ratingStats,
 
+
             tagStats:tagStats,
+
+            
+            heatmapStats:heatmapStats,
 
 
             totalSubmissions:total,
