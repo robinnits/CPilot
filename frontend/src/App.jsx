@@ -28,6 +28,9 @@ from "./components/charts/VerdictChart";
 import RatingHistoryChart
 from "./components/charts/RatingHistoryChart";
 
+import RankProgressCard
+from "./components/RankProgressCard";
+
 
 
 function App(){
@@ -160,6 +163,20 @@ function App(){
                 analytics &&
 
                 <StatsCard analytics={analytics}/>
+            }
+
+            {
+
+            analytics &&
+
+            <RankProgressCard
+
+            rankProgress={
+            analytics.rankProgress
+            }
+
+            />
+
             }
 
             {
