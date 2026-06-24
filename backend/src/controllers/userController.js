@@ -1,3 +1,6 @@
+const { analyzeVerdicts } =
+require("../analytics/verdictAnalyzer");
+
 const { analyzeHeatmap } =
 require("../analytics/heatmapAnalyzer");
 
@@ -135,6 +138,9 @@ const getUserAnalytics = async(req,res)=>{
         const heatmapStats =
         analyzeHeatmap(submissions);
 
+        const verdictStats =
+        analyzeVerdicts(submissions);
+
         const skillAnalysis =
         calculateSkillScore(topicAnalysis);
 
@@ -190,8 +196,11 @@ const getUserAnalytics = async(req,res)=>{
 
             tagStats:tagStats,
 
-            
+
             heatmapStats:heatmapStats,
+
+
+            verdictStats:verdictStats,
 
 
             totalSubmissions:total,
