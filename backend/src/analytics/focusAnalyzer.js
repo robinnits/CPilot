@@ -1,97 +1,22 @@
-const {
-
-    getTargetSkills
-
-}=require("./rankSkillMap");
-
-
-
-
 const analyzeFocusAreas = (
 
-    userRating,
+    rankFocusAreas,
 
     skillAnalysis
 
 )=>{
 
 
-    const targetSkills =
-    getTargetSkills(userRating);
+    const prioritySkills =
+    rankFocusAreas.map(skill=>
+
+        skill.skill
+
+    );
 
 
-
-    let focusAreas = [];
 
     let otherWeakness = [];
-
-
-
-
-
-
-    targetSkills.forEach(skill=>{
-
-
-
-        if(
-
-            !skillAnalysis[skill]
-
-        ){
-
-
-
-            focusAreas.push({
-
-
-                skill:skill,
-
-
-                score:0,
-
-
-                level:"Need Practice"
-
-
-            });
-
-
-
-        }
-
-
-
-        else if(
-
-            skillAnalysis[skill].level === "Weak"
-
-        ){
-
-
-
-            focusAreas.push({
-
-
-                skill:skill,
-
-
-                ...skillAnalysis[skill]
-
-
-            });
-
-
-
-        }
-
-
-
-    });
-
-
-
-
 
 
 
@@ -100,15 +25,13 @@ const analyzeFocusAreas = (
     .forEach(([skill,data])=>{
 
 
-
         if(
 
             data.level === "Weak" &&
 
-            !targetSkills.includes(skill)
+            !prioritySkills.includes(skill)
 
         ){
-
 
 
             otherWeakness.push({
@@ -123,15 +46,10 @@ const analyzeFocusAreas = (
             });
 
 
-
         }
 
 
-
     });
-
-
-
 
 
 
@@ -140,23 +58,13 @@ const analyzeFocusAreas = (
 
         focusAreas:
 
-
-        focusAreas
-
-        .sort(
-
-            (a,b)=>a.score-b.score
-
-        ),
+        rankFocusAreas,
 
 
 
         otherWeakness:
 
-
-        otherWeakness
-
-        .sort(
+        otherWeakness.sort(
 
             (a,b)=>a.score-b.score
 
@@ -166,10 +74,7 @@ const analyzeFocusAreas = (
     };
 
 
-
 };
-
-
 
 
 
