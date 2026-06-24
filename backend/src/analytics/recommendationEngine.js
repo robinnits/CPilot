@@ -1,3 +1,9 @@
+const {
+
+    getTargetSkills
+
+}=require("./rankSkillMap");
+
 const generateRecommendations = (
     skillAnalysis,
     problems,
@@ -6,19 +12,40 @@ const generateRecommendations = (
 )=>{
 
 
+    const targetSkills =
+    getTargetSkills(userRating);
+
+
+
     let weakTopics = [];
 
 
-    for(let topic in skillAnalysis){
+
+    targetSkills.forEach(skill=>{
 
 
-        if(skillAnalysis[topic].level === "Weak"){
+        if(
+
+            !skillAnalysis[skill] ||
+
+            skillAnalysis[skill].level === "Weak"
+
+        ){
 
 
-            weakTopics.push(topic);
+            weakTopics.push(skill);
 
 
         }
+
+
+    });
+
+    if(weakTopics.length === 0){
+
+
+        weakTopics =
+        targetSkills.slice(0,3);
 
 
     }
@@ -72,11 +99,6 @@ const generateRecommendations = (
 
 
         });
-
-
-
-        const baseRating =
-        Math.ceil(userRating / 100) * 100;
 
 
 
@@ -192,10 +214,27 @@ const generateRecommendations = (
         });
 
 
+        if(weakTopics.length === 0){
 
-        recommendations[topic] =
-        selected.slice(0,5);
 
+            weakTopics =
+            targetSkills.slice(0,3);
+
+
+        }
+
+
+        weakTopics =
+        weakTopics.slice(0,5);
+
+        if(selected.length > 0){
+
+
+            recommendations[topic] =
+            selected.slice(0,5);
+
+
+        }
 
 
     });
