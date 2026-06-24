@@ -22,6 +22,9 @@ from "./components/charts/TagChart";
 import HeatmapChart 
 from "./components/charts/HeatmapChart";
 
+import VerdictChart 
+from "./components/charts/VerdictChart";
+
 
 
 function App(){
@@ -188,6 +191,20 @@ function App(){
 
             heatmapStats={
             analytics.heatmapStats
+            }
+
+            />
+
+            }
+
+            {
+
+            analytics &&
+
+            <VerdictChart
+
+            verdictStats={
+            analytics.verdictStats
             }
 
             />
