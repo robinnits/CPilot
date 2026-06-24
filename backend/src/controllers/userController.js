@@ -34,6 +34,9 @@ require("../services/codeforcesService");
 const {analyzeRatings} =
 require("../analytics/ratingAnalyzer");
 
+const { analyzeRankProgress } =
+require("../analytics/rankAnalyzer");
+
 
 
 const getUserProfile = async(req,res)=>{
@@ -159,6 +162,15 @@ const getUserAnalytics = async(req,res)=>{
         const skillAnalysis =
         calculateSkillScore(topicAnalysis);
 
+        const rankProgress =
+        analyzeRankProgress(
+
+            userRating,
+
+            skillAnalysis
+
+        );
+
         const problems =
         await codeforcesService.getProblems();
 
@@ -201,6 +213,9 @@ const getUserAnalytics = async(req,res)=>{
 
 
             skillAnalysis:skillAnalysis,
+
+            
+            rankProgress:rankProgress,
 
 
             recommendations:recommendations,
