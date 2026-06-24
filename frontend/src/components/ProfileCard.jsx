@@ -18,7 +18,21 @@ function ProfileCard({user}){
 
 
             <p>
-                Rating: {user.rating}
+
+            {
+
+                user.rating
+
+                ?
+
+                `Rating: ${user.rating}`
+
+                :
+
+                "Unrated"
+
+            }
+
             </p>
 
 

@@ -11,39 +11,97 @@ function RecommendationCard({recommendations}){
             </h2>
 
 
+
             {
 
 
                 Object.entries(recommendations)
 
-                .map(([topic, problems])=>{
+                .map(([topic,problems])=>{
 
 
-                    const groupedProblems = {
+                    const warmup =
+                    problems.filter(
+
+                        p=>p.zone==="Warmup"
+
+                    );
 
 
-                        Warmup: problems.filter(
+                    const growth =
+                    problems.filter(
 
-                            problem =>
-                            problem.zone === "Warmup"
+                        p=>p.zone==="Growth"
 
-                        ),
-
-
-                        Growth: problems.filter(
-
-                            problem =>
-                            problem.zone === "Growth"
-
-                        ),
+                    );
 
 
-                        Challenge: problems.filter(
+                    const challenge =
+                    problems.filter(
 
-                            problem =>
-                            problem.zone === "Challenge"
+                        p=>p.zone==="Challenge"
 
-                        )
+                    );
+
+
+
+                    const renderProblems = (list)=>{
+
+
+                        return list.map(problem=>(
+
+
+                            <div
+
+                            key={
+
+                                problem.contestId
+
+                                +
+
+                                problem.index
+
+                            }
+
+                            >
+
+
+                                <p>
+
+                                    {problem.rating}
+
+                                    {" - "}
+
+                                    {problem.name}
+
+
+                                </p>
+
+
+
+                                <a
+
+                                href={
+
+`https://codeforces.com/problemset/problem/${problem.contestId}/${problem.index}`
+
+                                }
+
+
+                                target="_blank"
+
+                                >
+
+                                Solve on Codeforces
+
+                                </a>
+
+
+
+                            </div>
+
+
+                        ));
 
 
                     };
@@ -62,98 +120,70 @@ function RecommendationCard({recommendations}){
 
 
 
-
                             {
 
-                                Object.entries(groupedProblems)
 
-                                .map(([zone, zoneProblems])=>(
+                                warmup.length > 0 &&
 
+                                <>
 
-                                    <div key={zone}>
-
-
-                                        <h4>
-                                            {zone}
-                                        </h4>
+                                <h4>
+                                    Warmup
+                                </h4>
 
 
-
-                                        {
-
-                                        zoneProblems.map(problem=>(
+                                {renderProblems(warmup)}
 
 
+                                </>
 
-                                            <div
-
-                                            key={
-
-                                                problem.contestId +
-
-                                                problem.index
-
-                                            }
-
-                                            >
-
-
-
-                                                <p>
-
-
-                                                    {problem.rating}
-
-                                                    {" - "}
-
-                                                    {problem.name}
-
-
-                                                </p>
-
-
-
-                                                <a
-
-
-                                                href={
-
-`https://codeforces.com/problemset/problem/${problem.contestId}/${problem.index}`
-
-                                                }
-
-
-                                                target="_blank"
-
-
-                                                >
-
-
-                                                    Solve on Codeforces
-
-
-                                                </a>
-
-
-
-                                            </div>
-
-
-
-                                        ))
-
-                                        }
-
-
-
-                                    </div>
-
-
-
-                                ))
 
                             }
 
+
+
+
+                            {
+
+
+                                growth.length > 0 &&
+
+                                <>
+
+                                <h4>
+                                    Growth
+                                </h4>
+
+
+                                {renderProblems(growth)}
+
+
+                                </>
+
+
+                            }
+
+
+
+                            {
+
+
+                                challenge.length > 0 &&
+
+                                <>
+
+                                <h4>
+                                    Challenge
+                                </h4>
+
+
+                                {renderProblems(challenge)}
+
+
+                                </>
+
+
+                            }
 
 
 
@@ -165,8 +195,8 @@ function RecommendationCard({recommendations}){
 
                 })
 
-            }
 
+            }
 
 
         </div>
@@ -176,7 +206,6 @@ function RecommendationCard({recommendations}){
 
 
 }
-
 
 
 export default RecommendationCard;

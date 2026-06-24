@@ -1,8 +1,10 @@
-function RankProgressCard({
+function RankProgressCard({rankProgress}){
 
-    rankProgress
 
-}){
+    const isBeginner =
+
+    rankProgress.currentRating === "Unrated";
+
 
 
     return (
@@ -11,57 +13,92 @@ function RankProgressCard({
 
 
             <h2>
-                🚀 Road To {rankProgress.targetRank}
-            </h2>
 
+                🚀 Road To {rankProgress.targetRank}
+
+            </h2>
 
 
 
             <h3>
 
-                {rankProgress.currentRating}
 
-                {" / "}
+                {
 
-                {rankProgress.targetRating}
+                    isBeginner
+
+                    ?
+
+                    "Start Your Journey 🌱"
+
+                    :
+
+                    `${rankProgress.currentRating} / ${rankProgress.targetRating}`
+
+
+                }
+
 
             </h3>
 
 
 
 
-            <p>
-
-                Progress:
-
-                {" "}
-
-                {rankProgress.progress}
-
-                %
-
-            </p>
+            {
 
 
+                !isBeginner &&
 
 
-            <p>
+                <>
 
-                Need +
 
-                {rankProgress.ratingNeeded}
+                    <p>
 
-                {" "}
 
-                rating
+                        Progress:
 
-            </p>
 
+                        {" "}
+
+
+                        {rankProgress.progress}
+
+
+                        %
+
+
+                    </p>
+
+
+
+
+                    <p>
+
+
+                        Need +
+
+
+                        {rankProgress.ratingNeeded}
+
+
+                        {" "}
+
+
+                        rating
+
+
+                    </p>
+
+
+                </>
+
+
+            }
 
 
 
         </div>
-
 
     );
 
