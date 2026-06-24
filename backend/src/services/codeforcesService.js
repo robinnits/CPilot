@@ -186,6 +186,37 @@ const getProblems = async()=>{
 
 };
 
+const getRatingHistory = async(handle)=>{
+
+
+    try{
+
+
+        const response = await fetchWithRetry(
+
+            `https://codeforces.com/api/user.rating?handle=${handle}`
+
+        );
+
+
+
+        return response.data.result;
+
+
+    }
+
+
+    catch(error){
+
+
+        return [];
+
+
+    }
+
+
+};
+
 
 
 
@@ -198,7 +229,9 @@ module.exports = {
     getSubmissions,
 
 
-    getProblems
+    getProblems,
+
+    getRatingHistory
 
 
 };
