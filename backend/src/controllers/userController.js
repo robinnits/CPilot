@@ -168,24 +168,26 @@ const getUserAnalytics = async(req,res)=>{
         const skillAnalysis =
         calculateSkillScore(topicAnalysis);
 
+        
+        const rankProgress =
+        analyzeRankProgress(
+            
+            userRating,
+            
+            skillAnalysis
+            
+        );
+
+        
         const focusAnalysis =
         analyzeFocusAreas(
 
-            userRating,
+            rankProgress.focusAreas,
 
             skillAnalysis
 
         );
-
-        const rankProgress =
-        analyzeRankProgress(
-
-            userRating,
-
-            skillAnalysis
-
-        );
-
+        
         const problems =
         await codeforcesService.getProblems();
 
