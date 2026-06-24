@@ -25,6 +25,9 @@ from "./components/charts/HeatmapChart";
 import VerdictChart 
 from "./components/charts/VerdictChart";
 
+import RatingHistoryChart
+from "./components/charts/RatingHistoryChart";
+
 
 
 function App(){
@@ -166,6 +169,20 @@ function App(){
             <RatingChart
 
             ratingStats={analytics.ratingStats}
+
+            />
+
+            }
+
+            {
+
+            analytics &&
+
+            <RatingHistoryChart
+
+            ratingHistory={
+            analytics.ratingHistory
+            }
 
             />
 
