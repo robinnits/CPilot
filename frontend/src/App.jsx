@@ -171,13 +171,18 @@ function App(){
 
             <RankProgressCard
 
+
             rankProgress={
             analytics.rankProgress
             }
 
-            />
 
+            focusAnalysis={
+            analytics.focusAnalysis
             }
+
+
+            />
 
             {
 
