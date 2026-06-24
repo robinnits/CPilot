@@ -178,7 +178,7 @@ const getUserAnalytics = async(req,res)=>{
             
         );
 
-        
+
         const focusAnalysis =
         analyzeFocusAreas(
 
@@ -196,7 +196,7 @@ const getUserAnalytics = async(req,res)=>{
         const recommendations =
         generateRecommendations(
 
-            skillAnalysis,
+            rankProgress.focusAreas,
 
             problems,
 
