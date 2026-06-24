@@ -1,3 +1,6 @@
+const {analyzeTags} =
+require("../analytics/tagAnalyzer");
+
 const {
 
     generateRecommendations
@@ -123,6 +126,9 @@ const getUserAnalytics = async(req,res)=>{
         const ratingStats =
         analyzeRatings(submissions);
 
+        const tagStats =
+        analyzeTags(submissions);
+
         const skillAnalysis =
         calculateSkillScore(topicAnalysis);
 
@@ -174,6 +180,8 @@ const getUserAnalytics = async(req,res)=>{
 
 
             ratingStats:ratingStats,
+
+            tagStats:tagStats,
 
 
             totalSubmissions:total,
