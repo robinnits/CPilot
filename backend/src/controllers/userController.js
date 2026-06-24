@@ -19,6 +19,9 @@ const {
 const codeforcesService =
 require("../services/codeforcesService");
 
+const {analyzeRatings} =
+require("../analytics/ratingAnalyzer");
+
 
 
 const getUserProfile = async(req,res)=>{
@@ -117,6 +120,9 @@ const getUserAnalytics = async(req,res)=>{
         const topicAnalysis = 
         analyzeTopics(submissions);
 
+        const ratingStats =
+        analyzeRatings(submissions);
+
         const skillAnalysis =
         calculateSkillScore(topicAnalysis);
 
@@ -154,24 +160,38 @@ const getUserAnalytics = async(req,res)=>{
 
             data:{
 
-                handle:handle,
 
-                topicAnalysis:topicAnalysis,
+            handle:handle,
 
-                skillAnalysis:skillAnalysis,
 
-                recommendations:recommendations,
+            topicAnalysis:topicAnalysis,
 
-                totalSubmissions:total,
 
-                acceptedSubmissions:accepted,
+            skillAnalysis:skillAnalysis,
 
-                wrongSubmissions: total - accepted,
 
-                solvedProblems:solvedProblems.size,
+            recommendations:recommendations,
 
-                accuracy:accuracy
-            }
+
+            ratingStats:ratingStats,
+
+
+            totalSubmissions:total,
+
+
+            acceptedSubmissions:accepted,
+
+
+            wrongSubmissions: total - accepted,
+
+
+            solvedProblems:solvedProblems.size,
+
+
+            accuracy:accuracy
+
+
+        }
 
 
         });
