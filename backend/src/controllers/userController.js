@@ -43,6 +43,12 @@ const {
 
 }=require("../analytics/focusAnalyzer");
 
+const {
+
+    classifyUser
+
+}=require("../analytics/userClassifier");
+
 
 
 const getUserProfile = async(req,res)=>{
@@ -97,7 +103,11 @@ const getUserAnalytics = async(req,res)=>{
         await codeforcesService.getUser(handle);
 
 
-        const userRating = 
+        const isUnrated =
+        !user.rating;
+
+
+        const userRating =
         user.rating || 800;
 
 
@@ -149,6 +159,17 @@ const getUserAnalytics = async(req,res)=>{
 
         });
 
+        const userType =
+        classifyUser(
+
+            userRating,
+
+            solvedProblems.size,
+
+            isUnrated
+
+        );
+
 
         const topicAnalysis = 
         analyzeTopics(submissions);
@@ -171,11 +192,13 @@ const getUserAnalytics = async(req,res)=>{
         
         const rankProgress =
         analyzeRankProgress(
-            
+
             userRating,
-            
-            skillAnalysis
-            
+
+            skillAnalysis,
+
+            isUnrated
+
         );
 
 
@@ -212,8 +235,7 @@ const getUserAnalytics = async(req,res)=>{
         const accuracy = total === 0 
             ? 0 
             : ((accepted / total) * 100).toFixed(2);
-
-
+        
 
         res.json({
 
@@ -224,6 +246,9 @@ const getUserAnalytics = async(req,res)=>{
 
 
             handle:handle,
+
+
+            userType:userType,
 
 
             topicAnalysis:topicAnalysis,

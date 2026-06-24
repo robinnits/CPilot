@@ -225,6 +225,24 @@ const generateRecommendations = (
         ];
 
 
+        const uniqueRatings =
+        [
+            ...new Map(
+
+                targetRatings.map(item=>
+
+                    [
+                        item.rating,
+                        item
+                    ]
+
+                )
+
+            ).values()
+
+        ];
+
+
 
 
 
@@ -236,7 +254,7 @@ const generateRecommendations = (
 
 
 
-        targetRatings.forEach(level=>{
+        uniqueRatings.forEach(level=>{
 
 
 

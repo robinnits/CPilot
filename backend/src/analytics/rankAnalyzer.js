@@ -98,11 +98,71 @@ const getNextRank = (rating)=>{
 
 const analyzeRankProgress = (
 
-    userRating,
+    currentRating,
 
-    skillAnalysis
+    skillAnalysis,
+
+    isUnrated=false
 
 )=>{
+
+
+    if(isUnrated){
+
+
+        return {
+
+
+            type:"BEGINNER",
+
+            currentRating:"Unrated",
+
+            targetRank:"Pupil",
+
+            targetRating:1200,
+
+            ratingNeeded:null,
+
+            progress:null,
+
+
+            focusAreas:[
+
+
+                {
+                    skill:"implementation",
+                    score:0,
+                    level:"Need Practice"
+                },
+
+
+                {
+                    skill:"math",
+                    score:0,
+                    level:"Need Practice"
+                },
+
+
+                {
+                    skill:"greedy",
+                    score:0,
+                    level:"Need Practice"
+                },
+
+
+                {
+                    skill:"brute force",
+                    score:0,
+                    level:"Need Practice"
+                }
+
+
+            ]
+
+        };
+
+
+    }
 
 
 
