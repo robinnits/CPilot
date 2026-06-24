@@ -13,6 +13,9 @@ import SkillCard from "./components/SkillCard";
 import RecommendationCard 
 from "./components/RecommendationCard";
 
+import RatingChart 
+from "./components/charts/RatingChart";
+
 
 
 function App(){
@@ -145,6 +148,18 @@ function App(){
                 analytics &&
 
                 <StatsCard analytics={analytics}/>
+            }
+
+            {
+
+            analytics &&
+
+            <RatingChart
+
+            ratingStats={analytics.ratingStats}
+
+            />
+
             }
 
             {
