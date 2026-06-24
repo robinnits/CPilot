@@ -37,6 +37,12 @@ require("../analytics/ratingAnalyzer");
 const { analyzeRankProgress } =
 require("../analytics/rankAnalyzer");
 
+const {
+
+    analyzeFocusAreas
+
+}=require("../analytics/focusAnalyzer");
+
 
 
 const getUserProfile = async(req,res)=>{
@@ -162,6 +168,15 @@ const getUserAnalytics = async(req,res)=>{
         const skillAnalysis =
         calculateSkillScore(topicAnalysis);
 
+        const focusAnalysis =
+        analyzeFocusAreas(
+
+            userRating,
+
+            skillAnalysis
+
+        );
+
         const rankProgress =
         analyzeRankProgress(
 
@@ -213,6 +228,9 @@ const getUserAnalytics = async(req,res)=>{
 
 
             skillAnalysis:skillAnalysis,
+
+
+            focusAnalysis:focusAnalysis,
 
 
             rankProgress:rankProgress,
