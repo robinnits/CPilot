@@ -16,6 +16,9 @@ from "./components/RecommendationCard";
 import RatingChart 
 from "./components/charts/RatingChart";
 
+import TagChart 
+from "./components/charts/TagChart";
+
 
 
 function App(){
@@ -157,6 +160,18 @@ function App(){
             <RatingChart
 
             ratingStats={analytics.ratingStats}
+
+            />
+
+            }
+
+            {
+
+            analytics &&
+
+            <TagChart
+
+            tagStats={analytics.tagStats}
 
             />
 
