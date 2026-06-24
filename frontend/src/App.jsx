@@ -19,6 +19,9 @@ from "./components/charts/RatingChart";
 import TagChart 
 from "./components/charts/TagChart";
 
+import HeatmapChart 
+from "./components/charts/HeatmapChart";
+
 
 
 function App(){
@@ -172,6 +175,20 @@ function App(){
             <TagChart
 
             tagStats={analytics.tagStats}
+
+            />
+
+            }
+
+            {
+
+            analytics &&
+
+            <HeatmapChart
+
+            heatmapStats={
+            analytics.heatmapStats
+            }
 
             />
 
