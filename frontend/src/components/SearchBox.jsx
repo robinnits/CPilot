@@ -21,22 +21,33 @@ function SearchBox({ onSearch }) {
 
             <input
 
-                type="text"
 
-                placeholder="Enter Codeforces handle"
+            value={handle}
 
-                value={handle}
 
-                onChange={(e)=>setHandle(e.target.value)}
+            onChange={(e)=>
+
+                setHandle(e.target.value)
+
+            }
+
+
+            onKeyDown={(e)=>{
+
+
+                if(e.key==="Enter"){
+
+
+                    analyzeUser();
+
+
+                }
+
+
+            }}
+
 
             />
-
-
-            <button onClick={handleSubmit}>
-
-                Analyze
-
-            </button>
 
 
         </div>
