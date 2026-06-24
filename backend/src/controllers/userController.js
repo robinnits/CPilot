@@ -214,7 +214,7 @@ const getUserAnalytics = async(req,res)=>{
 
             skillAnalysis:skillAnalysis,
 
-            
+
             rankProgress:rankProgress,
 
 
