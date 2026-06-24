@@ -77,12 +77,9 @@ const getNextRank = (rating)=>{
 
     return {
 
-
         rank:"Master",
 
-
         target:2100
-
 
     };
 
@@ -107,7 +104,9 @@ const analyzeRankProgress = (
 )=>{
 
 
+
     if(isUnrated){
+
 
 
         return {
@@ -115,13 +114,18 @@ const analyzeRankProgress = (
 
             type:"BEGINNER",
 
+
             currentRating:"Unrated",
+
 
             targetRank:"Pupil",
 
+
             targetRating:1200,
 
+
             ratingNeeded:null,
+
 
             progress:null,
 
@@ -130,45 +134,64 @@ const analyzeRankProgress = (
 
 
                 {
+
                     skill:"implementation",
+
                     score:0,
+
                     level:"Need Practice"
+
                 },
 
 
                 {
+
                     skill:"math",
+
                     score:0,
+
                     level:"Need Practice"
+
                 },
 
 
                 {
+
                     skill:"greedy",
+
                     score:0,
+
                     level:"Need Practice"
+
                 },
 
 
                 {
+
                     skill:"brute force",
+
                     score:0,
+
                     level:"Need Practice"
+
                 }
 
 
             ]
 
+
         };
+
 
 
     }
 
 
 
+
     const nextRank =
 
-    getNextRank(userRating);
+    getNextRank(currentRating);
 
 
 
@@ -176,7 +199,7 @@ const analyzeRankProgress = (
 
     const requiredSkills =
 
-    getTargetSkills(userRating);
+    getTargetSkills(currentRating);
 
 
 
@@ -185,6 +208,7 @@ const analyzeRankProgress = (
 
 
     const focusAreas =
+
 
     requiredSkills.map(skill=>{
 
@@ -207,6 +231,7 @@ const analyzeRankProgress = (
             :
 
             0,
+
 
 
             level:
@@ -249,7 +274,7 @@ const analyzeRankProgress = (
 
     (
 
-        userRating /
+        currentRating /
 
         nextRank.target *
 
@@ -270,7 +295,7 @@ const analyzeRankProgress = (
     return {
 
 
-        currentRating:userRating,
+        currentRating:currentRating,
 
 
         targetRank:nextRank.rank,
@@ -285,7 +310,7 @@ const analyzeRankProgress = (
 
             0,
 
-            nextRank.target-userRating
+            nextRank.target-currentRating
 
         ),
 
