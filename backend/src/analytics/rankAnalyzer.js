@@ -1,7 +1,18 @@
+const {
+
+    getTargetSkills
+
+}=require("./rankSkillMap");
+
+
+
+
 const getNextRank = (rating)=>{
 
 
+
     if(rating < 1200){
+
 
         return {
 
@@ -11,11 +22,13 @@ const getNextRank = (rating)=>{
 
         };
 
+
     }
 
 
 
     if(rating < 1400){
+
 
         return {
 
@@ -25,11 +38,13 @@ const getNextRank = (rating)=>{
 
         };
 
+
     }
 
 
 
     if(rating < 1600){
+
 
         return {
 
@@ -39,11 +54,13 @@ const getNextRank = (rating)=>{
 
         };
 
+
     }
 
 
 
     if(rating < 1900){
+
 
         return {
 
@@ -53,19 +70,6 @@ const getNextRank = (rating)=>{
 
         };
 
-    }
-
-
-
-    if(rating < 2100){
-
-        return {
-
-            rank:"Master",
-
-            target:2100
-
-        };
 
     }
 
@@ -73,14 +77,22 @@ const getNextRank = (rating)=>{
 
     return {
 
-        rank:"Legend",
 
-        target:rating
+        rank:"Master",
+
+
+        target:2100
+
 
     };
 
 
+
 };
+
+
+
+
 
 
 
@@ -93,62 +105,105 @@ const analyzeRankProgress = (
 )=>{
 
 
+
     const nextRank =
+
     getNextRank(userRating);
 
 
 
-    const weakTopics =
-    Object.entries(skillAnalysis)
 
 
-    .filter(([topic,data])=>{
+    const requiredSkills =
+
+    getTargetSkills(userRating);
 
 
-        return data.level === "Weak";
 
 
-    })
 
 
-    .map(([topic,data])=>{
+
+    const focusAreas =
+
+    requiredSkills.map(skill=>{
+
 
 
         return {
 
 
-            topic:topic,
+            skill:skill,
 
 
-            score:data.score
+            score:
+
+            skillAnalysis[skill]
+
+            ?
+
+            skillAnalysis[skill].score
+
+            :
+
+            0,
+
+
+            level:
+
+            skillAnalysis[skill]
+
+            ?
+
+            skillAnalysis[skill].level
+
+            :
+
+            "Need Practice"
 
 
         };
 
 
+
     })
+
+
+    .sort(
+
+        (a,b)=>a.score-b.score
+
+    )
+
 
     .slice(0,5);
 
 
 
+
+
+
+
+
     const progress =
 
-    Math.min(
+    (
 
-        100,
+        userRating /
 
-        (
+        nextRank.target *
 
-            userRating /
+        100
 
-            nextRank.target *
+    )
 
-            100
+    .toFixed(2);
 
-        ).toFixed(2)
 
-    );
+
+
+
+
 
 
 
@@ -179,10 +234,12 @@ const analyzeRankProgress = (
         progress:progress,
 
 
-        focusAreas:weakTopics
+
+        focusAreas:focusAreas
 
 
     };
+
 
 
 };
@@ -190,8 +247,14 @@ const analyzeRankProgress = (
 
 
 
+
+
+
+
 module.exports={
 
+
     analyzeRankProgress
+
 
 };
