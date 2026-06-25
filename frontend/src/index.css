@@ -1,6 +1,12 @@
 @import "tailwindcss";
 
 
+/* ==================================
+        CPilot Theme
+        LeetCode Inspired
+================================== */
+
+
 *{
 
     box-sizing:border-box;
@@ -8,13 +14,57 @@
 }
 
 
+:root{
+
+
+    /* Background */
+
+    --bg-main:#1A1A1A;
+
+    --bg-card:#282828;
+
+    --bg-inner:#303030;
+
+
+
+    /* Text */
+
+    --text-main:#F5F5F5;
+
+    --text-muted:#A8A8A8;
+
+
+
+    /* Border */
+
+    --border:#3A3A3A;
+
+
+
+    /* Accent */
+
+    --blue:#2F81F7;
+
+    --green:#22C55E;
+
+
+}
+
+
+
+
 body{
+
 
     margin:0;
 
-    background:#0D1117;
+    min-height:100vh;
 
-    color:#E6EDF3;
+
+    background:var(--bg-main);
+
+    color:var(--text-main);
+
 
     font-family:
 
@@ -24,18 +74,670 @@ body{
 
     sans-serif;
 
+
+    font-size:15px;
+
+
 }
 
 
+
+/* ==================================
+        Typography
+================================== */
+
+
+h1,
+h2,
+h3,
+p{
+
+    margin-top:0;
+
+}
+
+
+h1{
+
+    font-size:30px;
+
+    font-weight:700;
+
+}
+
+
+
+h2{
+
+
+    font-size:22px;
+
+    font-weight:600;
+
+
+}
+
+
+
+h3{
+
+
+    font-size:18px;
+
+    font-weight:600;
+
+
+}
+
+
+
+p,
+span{
+
+
+    color:var(--text-muted);
+
+
+}
+
+
+
 button{
+
+
+    cursor:pointer;
+
+
+}
+
+
+
+/* ==================================
+            HEADER
+================================== */
+
+
+.header{
+
+
+    background:var(--bg-main);
+
+
+    padding:
+
+    18px 45px;
+
+
+    border-bottom:
+
+    1px solid var(--border);
+
+
+}
+
+
+
+.logo{
+
+
+    font-size:30px;
+
+    font-weight:700;
+
+
+}
+
+
+
+/* ==================================
+            SEARCH
+================================== */
+
+
+.search-container{
+
+
+    width:40%;
+
+
+    margin:
+
+    50px auto;
+
+
+    display:flex;
+
+    gap:15px;
+
+
+}
+
+
+
+.search-container input{
+
+
+    flex:1;
+
+
+    background:transparent;
+
+
+    border:none;
+
+
+    border-bottom:
+
+    1px solid var(--border);
+
+
+
+    padding:12px;
+
+
+    color:var(--text-main);
+
+
+    text-align:center;
+
+
+    font-size:18px;
+
+
+}
+
+
+
+.search-container input:focus{
+
+
+    outline:none;
+
+    border-color:var(--blue);
+
+
+}
+
+
+
+
+.search-container button{
+
+
+    background:var(--blue);
+
+
+    color:white;
+
+
+    border:none;
+
+
+    padding:
+
+    10px 28px;
+
+
+    border-radius:8px;
+
+
+    font-size:15px;
+
+
+}
+
+
+
+
+/* ==================================
+            GLOBAL CARDS
+================================== */
+
+
+.card,
+
+.profile-card,
+
+.performance-card{
+
+
+    width:90%;
+
+
+    max-width:1500px;
+
+
+    margin:
+
+    35px auto;
+
+
+    padding:35px;
+
+
+
+    background:var(--bg-card);
+
+
+
+    border:none;
+
+
+    border-radius:14px;
+
+
+}
+
+
+
+/* ==================================
+        PROFILE SECTION
+================================== */
+
+
+.profile-card{
+
+
+display:flex;
+
+align-items:center;
+
+gap:70px;
+
+
+padding:45px 60px;
+
+
+}
+
+
+
+.profile-avatar{
+
+
+width:180px !important;
+
+height:180px !important;
+
+
+border-radius:12px;
+
+object-fit:cover;
+
+
+}
+
+
+
+.profile-info{
+
+
+flex:1;
+
+
+}
+
+
+
+.profile-info h1{
+
+
+font-size:30px;
+
+font-weight:700;
+
+margin-bottom:5px;
+
+
+}
+
+
+
+.rank-text{
+
+
+font-size:17px;
+
+font-weight:700;
+
+
+}
+
+
+
+
+.profile-stats{
+
+
+display:flex;
+
+gap:90px;
+
+
+margin-top:45px;
+
+margin-bottom:45px;
+
+
+}
+
+
+
+.profile-stats span{
+
+
+font-size:15px;
+
+color:#aaa;
+
+
+}
+
+
+
+.profile-stats strong{
+
+
+font-size:24px;
+
+font-weight:600;
+
+color:white;
+
+
+}
+
+
+
+/* ROAD */
+
+
+.road-card{
+
+
+max-width:700px;
+
+
+}
+
+
+
+.road-card h2{
+
+
+font-size:22px;
+
+
+}
+
+
+
+.road-card h3{
+
+
+font-size:20px;
+
+margin:15px 0;
+
+
+}
+
+
+
+.progress-bar{
+
+
+width:100%;
+
+height:12px;
+
+
+background:#3a3a3a;
+
+border-radius:30px;
+
+
+overflow:hidden;
+
+
+}
+
+
+
+.progress-fill{
+
+
+height:100%;
+
+
+background:#00C853;
+
+
+border-radius:30px;
+
+
+}
+
+
+.road-card p{
+
+
+margin-top:15px;
+
+font-size:15px;
+
+
+}
+
+
+
+/* ==================================
+        PERFORMANCE
+================================== */
+
+
+.performance-grid{
+
+
+    display:grid;
+
+
+    grid-template-columns:
+
+    repeat(2,1fr);
+
+
+    gap:25px;
+
+
+}
+
+
+
+.chart-box{
+
+
+    background:var(--bg-inner);
+
+
+    padding:28px;
+
+
+    border-radius:12px;
+
+
+}
+
+
+
+
+/* ==================================
+        Inputs
+================================== */
+
+
+input,
+button{
+
+
+    font-family:inherit;
+
+
+}
+
+
+
+
+/* ==================================
+        Scrollbar
+================================== */
+
+
+::-webkit-scrollbar{
+
+
+    width:8px;
+
+
+}
+
+
+
+::-webkit-scrollbar-thumb{
+
+
+    background:#555;
+
+
+    border-radius:20px;
+
+
+}
+
+.app{
+
+    min-height:100vh;
+
+    background:var(--bg-main);
+
+    color:var(--text-main);
+
+}
+
+.navbar{
+
+height:90px;
+
+padding:0 45px;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+
+background:var(--bg-main);
+
+border-bottom:1px solid var(--border);
+
+}
+
+
+.brand{
+
+font-size:28px;
+
+}
+
+
+.brand span{
+
+color:var(--blue);
+
+}
+
+.rank-text{
+
+color:#00B8A3;
+
+font-weight:600;
+
+font-size:18px;
+
+}
+
+.info-icon{
+
+    position:relative;
+
+    display:inline-block;
+
+    margin-left:6px;
+
+    font-size:13px;
+
+    color:#9ca3af;
 
     cursor:pointer;
 
 }
 
 
-a{
 
-    color:inherit;
+.stat-tooltip{
+
+    visibility:hidden;
+
+    opacity:0;
+
+
+    position:absolute;
+
+    bottom:25px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+
+    width:230px;
+
+
+    background:#1f1f1f;
+
+    color:#e5e5e5;
+
+
+    padding:10px 12px;
+
+    border-radius:8px;
+
+
+    font-size:12px;
+
+    line-height:1.4;
+
+    text-align:center;
+
+
+    transition:0.2s ease;
+
+
+    z-index:100;
+
+
+    box-shadow:
+    0 5px 20px rgba(0,0,0,0.4);
+
+}
+
+
+
+.info-icon:hover .stat-tooltip{
+
+    visibility:visible;
+
+    opacity:1;
 
 }

@@ -1,346 +1,274 @@
 function ProfileCard({user,analytics}){
 
 
-const progress =
-analytics.rankProgress;
+const progress = analytics.rankProgress;
 
 
 const beginner =
 progress.currentRating==="Unrated";
 
 
+const displayMaxRating = Math.max(
+
+    user.rating || 0,
+
+    user.maxRating || 0
+
+);
+
+
+
+const getRankColor = (rating)=>{
+
+
+    if(!rating) return "#808080";
+
+    if(rating < 1200) return "#808080";
+
+    if(rating < 1400) return "#00C853";
+
+    if(rating < 1600) return "#03A9F4";
+
+    if(rating < 1900) return "#AA00FF";
+
+    if(rating < 2400) return "#FF8C00";
+
+    return "#FF3333";
+
+};
+
+
 
 return (
 
 
-<div
+<div className="profile-card">
 
-className="
-bg-[#161B22]
-border
-border-gray-800
-rounded-2xl
-p-10
-"
 
->
+    {/* AVATAR */}
 
+    <img
 
-<div
-className="
-flex
-justify-between
-items-start
-"
->
+    className="profile-avatar"
 
+    src={user.titlePhoto || user.avatar}
 
+    />
 
-{/* LEFT SIDE */}
 
 
-<div
-className="
-flex-1
-"
->
+    {/* DETAILS */}
 
+    <div className="profile-info">
 
-<h1
-className="
-text-5xl
-font-bold
-"
->
 
-{user.handle}
+        <h1>
+            {user.handle}
+        </h1>
 
-</h1>
 
 
+        <p
 
+        className="rank-text"
 
-<p
-className="
-text-green-400
-text-xl
-mt-2
-"
->
+        style={{
 
-{user.rank || "Unrated"}
+            color:getRankColor(user.rating)
 
-</p>
+        }}
 
+        >
 
+            {user.rank || "Unrated"}
 
+        </p>
 
 
-<div
-className="
-grid
-grid-cols-3
-gap-16
-mt-12
-max-w-xl
-"
->
 
 
 
-<div>
+        <div className="profile-stats">
 
 
-<p
-className="text-gray-400"
->
-Rating
-</p>
+            <div>
 
+                <span>Rating</span>
 
-<h2
-className="text-3xl"
->
+                <br/>
 
-{user.rating || "-"}
+                <strong>
 
-</h2>
+                    {user.rating || "-"}
 
+                </strong>
 
-</div>
+            </div>
 
 
 
 
 
+            <div>
 
-<div>
+                <span>Max Rating</span>
 
+                <br/>
 
-<p
-className="text-gray-400"
->
-Max Rating
-</p>
+                <strong>
 
+                    {displayMaxRating || "-"}
 
-<h2
-className="text-3xl"
->
+                </strong>
 
-{user.maxRating || "-"}
+            </div>
 
-</h2>
 
 
-</div>
 
 
+            <div className="solved-stat">
 
 
+                <span>
 
-<div>
+                    Solved
 
 
-<p
-className="text-gray-400"
->
-Solved
-</p>
+                    <span className="info-icon">
 
+                        ⓘ
 
-<h2
-className="text-3xl"
->
 
-{analytics.solvedProblems}
+                        <div className="stat-tooltip">
 
-</h2>
+                            Unique problems solved.
 
+                            <br/>
 
-</div>
+                            Duplicate Div1/Div2 problems are counted once.
 
+                        </div>
 
 
+                    </span>
 
-</div>
 
+                </span>
 
 
-</div>
+                <br/>
 
 
+                <strong>
 
+                    {analytics.solvedProblems}
 
+                </strong>
 
 
+            </div>
 
-{/* RIGHT AVATAR */}
 
 
-<img
+        </div>
 
-src={user.titlePhoto || user.avatar}
 
 
-className="
-w-50
-h-50
-rounded-xl
-object-cover
-border
-border-gray-700
-"
 
-/>
 
 
 
+        <div className="road-card">
 
-</div>
 
+            <h2>
 
+                Road To {progress.targetRank}
 
+            </h2>
 
 
 
+            <h3>
 
-<hr
 
-className="
-my-10
-border-gray-700
-"
+            {
 
-/>
+                beginner ?
 
+                "Start Your Journey"
 
+                :
 
+                `${progress.currentRating} / ${progress.targetRating}`
 
 
+            }
 
-{/* ROAD SECTION */}
 
+            </h3>
 
-<div>
 
 
 
-<h2
-className="
-text-3xl
-font-semibold
-"
->
 
-Road To {progress.targetRank}
+            {!beginner &&
 
-</h2>
+            <>
 
 
+                <div className="progress-bar">
 
 
+                    <div
 
-<h3
-className="
-text-2xl
-mt-5
-"
->
+                    className="progress-fill"
 
+                    style={{
 
-{
+                        width:`${progress.progress}%`
 
-beginner
+                    }}
 
-?
+                    >
 
-"Start Your Journey"
 
-:
+                    </div>
 
-`${progress.currentRating} / ${progress.targetRating}`
 
-}
+                </div>
 
 
-</h3>
 
 
+                <p>
 
+                {
+                progress.achieved ?
 
+                "✓ Achieved"
 
+                :
 
-{
+                `Need +${progress.ratingNeeded} rating`
 
+                }
 
-!beginner &&
+                </p>
 
 
-<>
+            </>
 
 
+            }
 
-<div
 
-className="
-w-full
-h-4
-bg-gray-800
-rounded-full
-mt-6
-"
 
->
+        </div>
 
 
-<div
-
-style={{
-
-width:`${progress.progress}%`
-
-}}
-
-
-className="
-h-full
-bg-green-500
-rounded-full
-"
-
->
-
-</div>
-
-
-</div>
-
-
-
-
-
-<p
-className="
-mt-5
-text-gray-300
-"
->
-
-Need +{progress.ratingNeeded} rating
-
-</p>
-
-
-</>
-
-
-}
-
-
-
-
-</div>
+    </div>
 
 
 

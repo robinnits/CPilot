@@ -11,18 +11,14 @@ import SkillCard from "./components/SkillCard";
 import RecommendationCard 
 from "./components/RecommendationCard";
 
-
-import RatingChart 
-from "./components/charts/RatingChart";
+import PerformanceSection 
+from "./components/PerformanceSection";
 
 import HeatmapChart 
 from "./components/charts/HeatmapChart";
 
 import VerdictChart 
 from "./components/charts/VerdictChart";
-
-import RatingHistoryChart
-from "./components/charts/RatingHistoryChart";
 
 import TopicBubbleChart
 from "./components/charts/TopicBubbleChart";
@@ -125,13 +121,7 @@ function App(){
     return (
 
 
-        <div
-        className="
-        min-h-screen
-        bg-[#0D1117]
-        text-white
-        "
-        >
+       <div className="app">
 
 
             <Navbar/>
@@ -227,35 +217,11 @@ function App(){
                 <>
 
 
-                    <div
-                    className="
-                    grid
-                    grid-cols-2
-                    gap-6
-                    "
-                    >
+                   <PerformanceSection
 
+                    analytics={analytics}
 
-                        <RatingChart
-
-                        ratingStats={
-                            analytics.ratingStats
-                        }
-
-                        />
-
-
-
-                        <RatingHistoryChart
-
-                        ratingHistory={
-                            analytics.ratingHistory
-                        }
-
-                        />
-
-
-                    </div>
+                    />
 
 
 

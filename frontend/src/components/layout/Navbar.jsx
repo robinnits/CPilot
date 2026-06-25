@@ -1,114 +1,47 @@
 function Navbar(){
 
 
-    return (
+return (
+
+<nav className="navbar">
 
 
-        <nav
-
-        className="
-
-        h-20
-
-        px-10
-
-        flex
-
-        items-center
-
-        justify-between
-
-        border-b
-
-        border-gray-800
-
-        bg-[#0D1117]
-
-        "
-
-        >
+    <div>
 
 
-            <div>
+        <h1 className="brand">
+
+            <span>C▸</span> CPilot
+
+        </h1>
 
 
-                <h1
+        <p>
 
-                className="
+        Your Competitive Programming Co-Pilot
 
-                text-3xl
-
-                font-bold
-
-                "
-
-                >
-
-                    <span
-                    className="text-blue-500"
-                    >
-
-                        C▸
-
-                    </span>
-
-                    {" "}
-
-                    CPilot
+        </p>
 
 
-                </h1>
+    </div>
 
 
 
-                <p
+    <p>
 
-                className="
+        Analyze • Improve • Rank Up
 
-                text-gray-400
-
-                "
-
-                >
-
-                    Your Competitive Programming Co-Pilot
-
-
-                </p>
-
-
-            </div>
+    </p>
 
 
 
-
-            <p
-
-            className="
-
-            text-gray-400
-
-            font-medium
-
-            "
-
-            >
-
-                Analyze • Improve • Rank Up
+</nav>
 
 
-            </p>
-
-
-
-        </nav>
-
-
-    );
+);
 
 
 }
-
 
 
 export default Navbar;
