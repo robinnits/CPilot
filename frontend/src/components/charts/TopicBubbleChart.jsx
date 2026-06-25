@@ -11,6 +11,23 @@ function TopicBubbleChart({ tagStats }) {
 
 
 
+    const data =
+    Object.entries(tagStats || {})
+    .map(([name,value])=>({
+
+        name,
+        value
+
+    }))
+    .sort((a,b)=>b.value-a.value)
+    .slice(0,25);
+
+
+
+    const strongest = data[0];
+
+
+
     useEffect(()=>{
 
 
@@ -19,18 +36,6 @@ function TopicBubbleChart({ tagStats }) {
 
         const width = 650;
         const height = 520;
-
-
-        const data =
-        Object.entries(tagStats)
-        .map(([name,value])=>({
-
-            name,
-            value
-
-        }))
-        .sort((a,b)=>b.value-a.value)
-        .slice(0,25);
 
 
 
@@ -77,20 +82,17 @@ function TopicBubbleChart({ tagStats }) {
         .style("cursor","pointer")
 
 
+
         .on("mouseenter",(event,d)=>{
 
 
             setTooltip({
 
-
                 x:event.clientX,
-
                 y:event.clientY,
 
                 name:d.data.name,
-
                 value:d.data.value
-
 
             });
 
@@ -103,15 +105,11 @@ function TopicBubbleChart({ tagStats }) {
 
             setTooltip({
 
-
                 x:event.clientX,
-
                 y:event.clientY,
 
                 name:d.data.name,
-
                 value:d.data.value
-
 
             });
 
@@ -131,14 +129,17 @@ function TopicBubbleChart({ tagStats }) {
 
 
 
-
         node.append("circle")
 
         .attr("r",d=>d.r)
 
         .attr("fill","#26352D")
+
         .attr("stroke","#22C55E")
-        .attr("strokeWidth",1.5)
+
+        .attr("strokeWidth",1.5);
+
+
 
 
 
@@ -153,18 +154,12 @@ function TopicBubbleChart({ tagStats }) {
         .style("font-size",d=>{
 
 
-            if(d.r > 70){
-
+            if(d.r > 70)
                 return "18px";
 
-            }
 
-
-            if(d.r > 40){
-
+            if(d.r > 40)
                 return "14px";
-
-            }
 
 
             return "10px";
@@ -184,15 +179,9 @@ function TopicBubbleChart({ tagStats }) {
             d.data.name.split(" ");
 
 
-            // hide very tiny bubbles
 
-            if(d.r < 14){
-
-
+            if(d.r < 14)
                 return;
-
-
-            }
 
 
 
@@ -208,7 +197,7 @@ function TopicBubbleChart({ tagStats }) {
                 .attr(
                     "dy",
 
-                    index === 0
+                    index===0
 
                     ?
 
@@ -232,6 +221,8 @@ function TopicBubbleChart({ tagStats }) {
 
 
 
+
+
     return (
 
         <div
@@ -239,9 +230,34 @@ function TopicBubbleChart({ tagStats }) {
         >
 
 
-            <h2>
-                Topic Universe
-            </h2>
+            <div className="chart-header">
+
+
+                <h2>
+                    Skill Map
+                </h2>
+
+
+
+                <div>
+
+
+                    <span>
+                        Strongest: {strongest?.name}
+                    </span>
+
+
+                    <span>
+                        Covered: {data.length}
+                    </span>
+
+
+                </div>
+
+
+            </div>
+
+
 
 
             <svg
@@ -256,65 +272,66 @@ function TopicBubbleChart({ tagStats }) {
 
 
 
+
+
             {
 
-                tooltip &&
-
-                <div
-
-                style={{
+            tooltip &&
 
 
-                    position:"fixed",
+            <div
 
-                    left:tooltip.x + 15,
-
-                    top:tooltip.y + 15,
+            style={{
 
 
-                    background:"rgba(48,48,48,0.95)",
+                position:"fixed",
 
-                    border:"1px solid #3A3A3A",
+                left:tooltip.x + 15,
 
-                    color:"#E6EDF3",
-
-
-                    padding:"8px 12px",
-
-                    borderRadius:"6px",
+                top:tooltip.y + 15,
 
 
-                    fontSize:"13px",
+                background:"#252525",
 
 
-                    boxShadow:
-                    "0 4px 12px rgba(0,0,0,0.25)",
+                border:"1px solid #3A3A3A",
 
 
-                    pointerEvents:"none",
-
-                    zIndex:9999
+                color:"#E6EDF3",
 
 
-                }}
+                padding:"8px 12px",
 
-                >
+                borderRadius:"8px",
 
 
-                    <b>
+                fontSize:"13px",
 
+
+                pointerEvents:"none",
+
+
+                zIndex:9999
+
+
+            }}
+
+
+            >
+
+
+                <b>
                     {tooltip.name}
-
-                    </b>
-
-
-                    <br/>
+                </b>
 
 
-                    {tooltip.value} solved
+                <br/>
 
 
-                </div>
+                {tooltip.value} solved
+
+
+            </div>
 
 
             }
@@ -323,9 +340,12 @@ function TopicBubbleChart({ tagStats }) {
 
         </div>
 
+
     );
 
+
 }
+
 
 
 export default TopicBubbleChart;

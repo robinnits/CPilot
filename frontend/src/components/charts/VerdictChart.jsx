@@ -45,7 +45,9 @@ function VerdictChart({verdictStats}){
 
         "Compilation Error":"#7C3AED",
 
-        "Runtime Error":"#DB2777"
+        "Runtime Error":"#DB2777",
+
+        Others:"#6B7280"
 
 
     };
@@ -53,16 +55,91 @@ function VerdictChart({verdictStats}){
 
 
 
+    const mainVerdicts = [
 
-    const data =
+        "Accepted",
+
+        "Wrong Answer",
+
+        "Time Limit Exceed",
+
+        "Compilation Error",
+
+        "Runtime Error"
+
+    ];
+
+
+
+
+
+    let grouped = {};
+
+
+
+
     Object.entries(verdictStats || {})
 
-    .map(([verdict,count])=>({
+    .forEach(([verdict,count])=>{
 
 
-        name:nameMap[verdict] || verdict,
+        const name =
 
-        value:count
+        nameMap[verdict]
+
+        ||
+
+        "Others";
+
+
+
+
+        if(mainVerdicts.includes(name)){
+
+
+            grouped[name] =
+
+            (grouped[name] || 0)
+
+            +
+
+            count;
+
+
+        }
+
+        else{
+
+
+            grouped["Others"] =
+
+            (grouped["Others"] || 0)
+
+            +
+
+            count;
+
+
+        }
+
+
+    });
+
+
+
+
+
+
+    const data =
+
+    Object.entries(grouped)
+
+    .map(([name,value])=>({
+
+
+        name,
+
+        value
 
 
     }));
@@ -71,10 +148,19 @@ function VerdictChart({verdictStats}){
 
 
 
+
+
     if(data.length===0){
 
 
-        return <p>No verdict data</p>;
+        return (
+
+            <p>
+                No verdict data
+            </p>
+
+        );
+
 
     }
 
@@ -96,6 +182,8 @@ function VerdictChart({verdictStats}){
 
 
 
+
+
     const accepted =
 
     data.find(
@@ -107,11 +195,16 @@ function VerdictChart({verdictStats}){
 
 
 
+
+
+
     const acRate =
 
     ((accepted/total)*100)
 
     .toFixed(1);
+
+
 
 
 
@@ -133,16 +226,18 @@ function VerdictChart({verdictStats}){
                 </h3>
 
 
-                <div>
 
-                    <span>
-                        AC Rate: {acRate}%
-                    </span>
 
-                </div>
+                <span className="chart-stat">
+
+                    AC Rate: {acRate}%
+
+                </span>
+
 
 
             </div>
+
 
 
 
@@ -181,11 +276,13 @@ function VerdictChart({verdictStats}){
 
                     paddingAngle={2}
 
-                    
+
                     stroke="none"
 
 
                     >
+
+
 
 
 
@@ -196,16 +293,17 @@ function VerdictChart({verdictStats}){
 
                         <Cell
 
+
                         key={index}
 
 
                         fill={
 
-                        colorMap[entry.name]
+                            colorMap[entry.name]
 
-                        ||
+                            ||
 
-                        "#6B7280"
+                            "#6B7280"
 
                         }
 
@@ -219,7 +317,12 @@ function VerdictChart({verdictStats}){
 
 
 
+
+
                     </Pie>
+
+
+
 
 
 
@@ -233,9 +336,12 @@ function VerdictChart({verdictStats}){
 
                         background:"#252525",
 
+
                         border:"none",
 
+
                         borderRadius:"8px",
+
 
                         color:"#fff"
 
@@ -248,7 +354,11 @@ function VerdictChart({verdictStats}){
 
 
 
+
+
+
                     <Legend />
+
 
 
                 </PieChart>
