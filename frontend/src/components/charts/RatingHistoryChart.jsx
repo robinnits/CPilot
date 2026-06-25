@@ -210,11 +210,21 @@ function RatingHistoryChart({ratingHistory}){
                 stroke="#999"
 
                 domain={[
+                0,
+                "dataMax + 200"
+                ]}
 
-                    "dataMin - 200",
-
-                    "dataMax + 200"
-
+                ticks={[
+                0,
+                800,
+                1200,
+                1400,
+                1600,
+                1900,
+                2100,
+                2400,
+                2600,
+                3000
                 ]}
 
                 />
