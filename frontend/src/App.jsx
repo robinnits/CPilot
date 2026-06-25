@@ -97,7 +97,7 @@ function App(){
 
                 ||
 
-                "Unable to analyze profile 😢"
+                "Unable to analyze profile"
 
             );
 
