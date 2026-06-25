@@ -250,15 +250,15 @@ return (
 
 
                     <div
-
                     className="progress-fill"
 
                     style={{
 
-                        width:`${progress.progress}%`
+                        width:`${progress.progress}%`,
+
+                        background:getRankColor(progress.targetRating)
 
                     }}
-
                     >
 
 
