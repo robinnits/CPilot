@@ -16,8 +16,8 @@ from "./components/RecommendationCard";
 import RatingChart 
 from "./components/charts/RatingChart";
 
-import TagChart 
-from "./components/charts/TagChart";
+// import TagChart 
+// from "./components/charts/TagChart";
 
 import HeatmapChart 
 from "./components/charts/HeatmapChart";
@@ -31,22 +31,43 @@ from "./components/charts/RatingHistoryChart";
 import RankProgressCard
 from "./components/RankProgressCard";
 
+import TopicBubbleChart
+from "./components/charts/TopicBubbleChart";
+
 
 
 function App(){
 
 
     const [user,setUser] = useState(null);
-    const [error,setError] = useState("");
 
-    const [analytics,setAnalytics] = useState(null);
+    const [analytics,setAnalytics] =
+    useState(null);
+
+
+    const [error,setError] =
+    useState("");
+
+
+    const [loading,setLoading] =
+    useState(false);
+
+
 
 
 
     const analyzeUser = async(handle)=>{
+
+
         setError("");
+
         setUser(null);
+
         setAnalytics(null);
+
+        setLoading(true);
+
+
 
 
         try{
@@ -58,16 +79,15 @@ function App(){
             );
 
 
+
+
             const userResponse =
             await API.get(
+
                 `/user/${handle}`
+
             );
 
-
-            console.log(
-                "User:",
-                userResponse.data
-            );
 
 
 
@@ -79,10 +99,6 @@ function App(){
             );
 
 
-            console.log(
-                "Analytics:",
-                analyticsResponse.data
-            );
 
 
 
@@ -91,6 +107,7 @@ function App(){
                 userResponse.data.data
 
             );
+
 
 
             setAnalytics(
@@ -104,27 +121,53 @@ function App(){
         }
 
 
+
         catch(error){
 
 
+
             console.log(
+
                 error.response?.data
+
             );
+
 
 
             setError(
 
+
                 error.response?.data?.message
+
                 ||
-                "Something went wrong 😢"
+
+                "Unable to analyze profile 😢"
+
 
             );
+
 
 
         }
 
 
+
+        finally{
+
+
+            setLoading(false);
+
+
+        }
+
+
+
+
     };
+
+
+
+
 
 
 
@@ -133,145 +176,236 @@ function App(){
         <div>
 
 
+
+
             <h1>
+
                 CPilot 🚀
+
             </h1>
 
 
-            <SearchBox
-            onSearch={analyzeUser}
-            />
-            {
-            error &&
 
-            <p>
-                {error}
-            </p>
+
+
+            <SearchBox
+
+            onSearch={analyzeUser}
+
+            />
+
+
+
+
+
+
+            {
+
+
+                loading &&
+
+
+                <h3>
+
+                    🚀 Analyzing Codeforces profile...
+
+                </h3>
+
 
             }
 
 
+
+
+
+
             {
+
+
+                error &&
+
+
+                <p>
+
+                    ❌ {error}
+
+                </p>
+
+
+            }
+
+
+
+
+
+
+
+
+            {
+
                 user &&
 
                 <ProfileCard user={user}/>
+
             }
 
 
 
+
+
+
             {
+
+
                 analytics &&
 
-                <StatsCard analytics={analytics}/>
+
+                <>
+
+
+                <StatsCard
+
+                analytics={analytics}
+
+                />
+
+
+
+
+                <RankProgressCard
+
+                rankProgress={
+
+                    analytics.rankProgress
+
+                }
+
+                />
+
+
+
+
+
+                <RatingChart
+
+                ratingStats={
+
+                    analytics.ratingStats
+
+                }
+
+                />
+
+
+
+
+
+
+                <RatingHistoryChart
+
+                ratingHistory={
+
+                    analytics.ratingHistory
+
+                }
+
+                />
+
+
+
+                <TopicBubbleChart
+
+                tagStats={
+                analytics.tagStats
+                }
+
+                />
+
+
+
+                {/* <TagChart
+
+                tagStats={
+
+                    analytics.tagStats
+
+                }
+
+                /> */}
+
+
+
+
+
+
+
+                <HeatmapChart
+
+                heatmapStats={
+
+                    analytics.heatmapStats
+
+                }
+
+                />
+
+
+
+
+
+
+                <VerdictChart
+
+                verdictStats={
+
+                    analytics.verdictStats
+
+                }
+
+                />
+
+
+
+
+
+
+
+                <SkillCard
+
+                focusAnalysis={
+
+                    analytics.focusAnalysis
+
+                }
+
+                />
+
+
+
+
+
+
+
+                <RecommendationCard
+
+                recommendations={
+
+                    analytics.recommendations
+
+                }
+
+                />
+
+
+
+
+                </>
+
+
             }
 
-            {
 
-            analytics &&
 
-            <RankProgressCard
-
-            rankProgress={
-            analytics.rankProgress
-            }
-
-            />
-
-            }
-
-            {
-
-            analytics &&
-
-            <RatingChart
-
-            ratingStats={analytics.ratingStats}
-
-            />
-
-            }
-
-            {
-
-            analytics &&
-
-            <RatingHistoryChart
-
-            ratingHistory={
-            analytics.ratingHistory
-            }
-
-            />
-
-            }
-
-            {
-
-            analytics &&
-
-            <TagChart
-
-            tagStats={analytics.tagStats}
-
-            />
-
-            }
-
-            {
-
-            analytics &&
-
-            <HeatmapChart
-
-            heatmapStats={
-            analytics.heatmapStats
-            }
-
-            />
-
-            }
-
-            {
-
-            analytics &&
-
-            <VerdictChart
-
-            verdictStats={
-            analytics.verdictStats
-            }
-
-            />
-
-            }
-
-            {
-
-            analytics &&
-
-            <SkillCard
-
-            focusAnalysis={
-            analytics.focusAnalysis
-            }
-
-            />
-
-            }
-
-            {
-
-            analytics &&
-
-            <RecommendationCard
-
-            recommendations={
-            analytics.recommendations
-            }
-
-            />
-
-            }
 
 
         </div>
@@ -280,6 +414,8 @@ function App(){
 
 
 }
+
+
 
 
 export default App;
