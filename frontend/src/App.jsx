@@ -6,18 +6,14 @@ import API from "./services/api";
 
 import ProfileCard from "./components/ProfileCard";
 
-import StatsCard from "./components/StatsCard";
-
 import SkillCard from "./components/SkillCard";
 
 import RecommendationCard 
 from "./components/RecommendationCard";
 
+
 import RatingChart 
 from "./components/charts/RatingChart";
-
-// import TagChart 
-// from "./components/charts/TagChart";
 
 import HeatmapChart 
 from "./components/charts/HeatmapChart";
@@ -28,18 +24,20 @@ from "./components/charts/VerdictChart";
 import RatingHistoryChart
 from "./components/charts/RatingHistoryChart";
 
-import RankProgressCard
-from "./components/RankProgressCard";
-
 import TopicBubbleChart
 from "./components/charts/TopicBubbleChart";
+
+import Navbar
+from "./components/layout/Navbar";
 
 
 
 function App(){
 
 
-    const [user,setUser] = useState(null);
+    const [user,setUser] =
+    useState(null);
+
 
     const [analytics,setAnalytics] =
     useState(null);
@@ -51,7 +49,6 @@ function App(){
 
     const [loading,setLoading] =
     useState(false);
-
 
 
 
@@ -69,51 +66,25 @@ function App(){
 
 
 
-
         try{
 
 
-            console.log(
-                "Searching:",
-                handle
-            );
-
-
-
-
             const userResponse =
-            await API.get(
-
-                `/user/${handle}`
-
-            );
-
-
+            await API.get(`/user/${handle}`);
 
 
             const analyticsResponse =
-            await API.get(
-
-                `/user/analytics/${handle}`
-
-            );
-
-
+            await API.get(`/user/analytics/${handle}`);
 
 
 
             setUser(
-
                 userResponse.data.data
-
             );
 
 
-
             setAnalytics(
-
                 analyticsResponse.data.data
-
             );
 
 
@@ -121,21 +92,10 @@ function App(){
         }
 
 
-
         catch(error){
 
 
-
-            console.log(
-
-                error.response?.data
-
-            );
-
-
-
             setError(
-
 
                 error.response?.data?.message
 
@@ -143,24 +103,17 @@ function App(){
 
                 "Unable to analyze profile 😢"
 
-
             );
 
 
-
         }
-
 
 
         finally{
 
-
             setLoading(false);
 
-
         }
-
-
 
 
     };
@@ -169,92 +122,103 @@ function App(){
 
 
 
-
-
     return (
 
-        <div>
+
+        <div
+        className="
+        min-h-screen
+        bg-[#0D1117]
+        text-white
+        "
+        >
+
+
+            <Navbar/>
 
 
 
 
-            <h1>
-
-                CPilot 🚀
-
-            </h1>
-
-
-
-
-
-            <SearchBox
-
-            onSearch={analyzeUser}
-
-            />
+            <main
+            className="
+            max-w-7xl
+            mx-auto
+            px-8
+            py-8
+            space-y-10
+            "
+            >
 
 
 
+                <SearchBox
+
+                onSearch={analyzeUser}
+
+                />
 
 
 
-            {
 
+                {
 
                 loading &&
 
 
                 <h3>
 
-                    🚀 Analyzing Codeforces profile...
+                Analyzing profile...
 
                 </h3>
 
 
-            }
+                }
 
 
 
 
 
-
-            {
-
+                {
 
                 error &&
 
 
                 <p>
 
-                    ❌ {error}
+                {error}
 
                 </p>
 
 
-            }
+                }
 
 
 
 
 
 
+                {
 
 
-            {
-
-                user &&
-
-                <ProfileCard user={user}/>
-
-            }
+                user && analytics &&
 
 
+                <ProfileCard
+
+                user={user}
+
+                analytics={analytics}
+
+                />
+
+                }
 
 
 
 
-            {
+
+
+                {
 
 
                 analytics &&
@@ -263,158 +227,131 @@ function App(){
                 <>
 
 
-                <StatsCard
+                    <div
+                    className="
+                    grid
+                    grid-cols-2
+                    gap-6
+                    "
+                    >
 
-                analytics={analytics}
 
-                />
+                        <RatingChart
 
+                        ratingStats={
+                            analytics.ratingStats
+                        }
 
+                        />
 
 
-                <RankProgressCard
 
-                rankProgress={
+                        <RatingHistoryChart
 
-                    analytics.rankProgress
+                        ratingHistory={
+                            analytics.ratingHistory
+                        }
 
-                }
+                        />
 
-                />
 
+                    </div>
 
 
 
 
-                <RatingChart
 
-                ratingStats={
 
-                    analytics.ratingStats
+                    <div
+                    className="
+                    grid
+                    grid-cols-2
+                    gap-6
+                    "
+                    >
 
-                }
 
-                />
+                        <TopicBubbleChart
 
+                        tagStats={
+                            analytics.tagStats
+                        }
 
+                        />
 
 
 
+                        <VerdictChart
 
-                <RatingHistoryChart
+                        verdictStats={
+                            analytics.verdictStats
+                        }
 
-                ratingHistory={
+                        />
 
-                    analytics.ratingHistory
 
-                }
+                    </div>
 
-                />
 
 
 
-                <TopicBubbleChart
 
-                tagStats={
-                analytics.tagStats
-                }
 
-                />
 
+                    <HeatmapChart
 
+                    heatmapStats={
+                        analytics.heatmapStats
+                    }
 
-                {/* <TagChart
+                    />
 
-                tagStats={
 
-                    analytics.tagStats
 
-                }
 
-                /> */}
 
 
 
 
+                    <SkillCard
 
+                    focusAnalysis={
+                        analytics.focusAnalysis
+                    }
 
+                    />
 
-                <HeatmapChart
 
-                heatmapStats={
 
-                    analytics.heatmapStats
 
-                }
 
-                />
 
+                    <RecommendationCard
 
+                    recommendations={
+                        analytics.recommendations
+                    }
 
-
-
-
-                <VerdictChart
-
-                verdictStats={
-
-                    analytics.verdictStats
-
-                }
-
-                />
-
-
-
-
-
-
-
-                <SkillCard
-
-                focusAnalysis={
-
-                    analytics.focusAnalysis
-
-                }
-
-                />
-
-
-
-
-
-
-
-                <RecommendationCard
-
-                recommendations={
-
-                    analytics.recommendations
-
-                }
-
-                />
-
+                    />
 
 
 
                 </>
 
-
-            }
-
+                }
 
 
+
+            </main>
 
 
         </div>
+
 
     );
 
 
 }
-
 
 
 
