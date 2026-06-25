@@ -17,8 +17,8 @@ function TopicBubbleChart({ tagStats }) {
         if(!tagStats) return;
 
 
-        const width = 900;
-        const height = 650;
+        const width = 650;
+        const height = 520;
 
 
         const data =
@@ -47,7 +47,7 @@ function TopicBubbleChart({ tagStats }) {
         const pack =
         d3.pack()
         .size([width,height])
-        .padding(12);
+        .padding(8);
 
 
 
@@ -136,11 +136,9 @@ function TopicBubbleChart({ tagStats }) {
 
         .attr("r",d=>d.r)
 
-        .attr("fill","#eeeeee")
-
-        .attr("stroke","#7bd88f")
-
-        .attr("strokeWidth",3)
+        .attr("fill","#26352D")
+        .attr("stroke","#22C55E")
+        .attr("strokeWidth",1.5)
 
 
 
@@ -148,7 +146,7 @@ function TopicBubbleChart({ tagStats }) {
 
         .attr("text-anchor","middle")
 
-        .attr("fill","green")
+        .attr("fill","#E6EDF3")
 
         .style("pointer-events","none")
 
@@ -169,7 +167,7 @@ function TopicBubbleChart({ tagStats }) {
             }
 
 
-            return "11px";
+            return "10px";
 
 
         })
@@ -188,7 +186,7 @@ function TopicBubbleChart({ tagStats }) {
 
             // hide very tiny bubbles
 
-            if(d.r < 22){
+            if(d.r < 14){
 
 
                 return;
@@ -242,7 +240,7 @@ function TopicBubbleChart({ tagStats }) {
 
 
             <h2>
-                Topic Universe 🧠
+                Topic Universe
             </h2>
 
 
@@ -250,9 +248,9 @@ function TopicBubbleChart({ tagStats }) {
 
             ref={svgRef}
 
-            width={900}
+            width={650}
 
-            height={650}
+            height={520}
 
             />
 
@@ -267,28 +265,38 @@ function TopicBubbleChart({ tagStats }) {
                 style={{
 
 
-                position:"fixed",
+                    position:"fixed",
 
-                left:tooltip.x + 15,
+                    left:tooltip.x + 15,
 
-                top:tooltip.y + 15,
-
-                background:"white",
-
-                border:"1px solid #ccc",
-
-                padding:"10px",
-
-                borderRadius:"8px",
-
-                boxShadow:"0 2px 10px #aaa",
-
-                pointerEvents:"none",
-
-                zIndex:9999
+                    top:tooltip.y + 15,
 
 
-            }}
+                    background:"rgba(48,48,48,0.95)",
+
+                    border:"1px solid #3A3A3A",
+
+                    color:"#E6EDF3",
+
+
+                    padding:"8px 12px",
+
+                    borderRadius:"6px",
+
+
+                    fontSize:"13px",
+
+
+                    boxShadow:
+                    "0 4px 12px rgba(0,0,0,0.25)",
+
+
+                    pointerEvents:"none",
+
+                    zIndex:9999
+
+
+                }}
 
                 >
 

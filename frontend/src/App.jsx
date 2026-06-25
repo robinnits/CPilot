@@ -228,32 +228,51 @@ function App(){
 
 
 
-                    <div
-                    className="
-                    grid
-                    grid-cols-2
-                    gap-6
-                    "
-                    >
+                    <div className="card skill-card">
 
 
-                        <TopicBubbleChart
-
-                        tagStats={
-                            analytics.tagStats
-                        }
-
-                        />
+                        <h2>
+                            Skill Analytics
+                        </h2>
 
 
 
-                        <VerdictChart
+                        <div className="skill-grid">
 
-                        verdictStats={
-                            analytics.verdictStats
-                        }
 
-                        />
+                            <div className="chart-box topic-box">
+
+
+                                <TopicBubbleChart
+
+                                tagStats={
+                                    analytics.tagStats
+                                }
+
+                                />
+
+
+                            </div>
+
+
+
+
+                            <div className="chart-box verdict-box">
+
+
+                                <VerdictChart
+
+                                verdictStats={
+                                    analytics.verdictStats
+                                }
+
+                                />
+
+
+                            </div>
+
+
+                        </div>
 
 
                     </div>

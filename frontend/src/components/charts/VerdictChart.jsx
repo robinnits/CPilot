@@ -1,31 +1,29 @@
 import {
 
     PieChart,
-
     Pie,
-
     Tooltip,
-
     ResponsiveContainer,
-
     Cell,
-
+    Legend
 
 } from "recharts";
+
+
 
 
 
 function VerdictChart({verdictStats}){
 
 
-    const nameMap = {
+    const nameMap={
 
 
         OK:"Accepted",
 
         WRONG_ANSWER:"Wrong Answer",
 
-        TIME_LIMIT_EXCEEDED:"Time Limit",
+        TIME_LIMIT_EXCEEDED:"Time Limit Exceed",
 
         COMPILATION_ERROR:"Compilation Error",
 
@@ -36,25 +34,88 @@ function VerdictChart({verdictStats}){
 
 
 
+    const colorMap={
+
+
+        Accepted:"#16A34A",
+
+        "Wrong Answer":"#DC2626",
+
+        "Time Limit Exceed":"#D97706",
+
+        "Compilation Error":"#7C3AED",
+
+        "Runtime Error":"#DB2777"
+
+
+    };
+
+
+
+
+
     const data =
-    Object.entries(verdictStats)
+    Object.entries(verdictStats || {})
 
-    .map(([verdict,count])=>{
-
-
-        return {
+    .map(([verdict,count])=>({
 
 
-            name:nameMap[verdict] || verdict,
+        name:nameMap[verdict] || verdict,
+
+        value:count
 
 
-            value:count
+    }));
 
 
-        };
 
 
-    });
+
+    if(data.length===0){
+
+
+        return <p>No verdict data</p>;
+
+    }
+
+
+
+
+
+
+    const total =
+
+    data.reduce(
+
+        (sum,item)=>sum+item.value,
+
+        0
+
+    );
+
+
+
+
+    const accepted =
+
+    data.find(
+
+        x=>x.name==="Accepted"
+
+    )?.value || 0;
+
+
+
+
+    const acRate =
+
+    ((accepted/total)*100)
+
+    .toFixed(1);
+
+
+
+
 
 
 
@@ -64,17 +125,35 @@ function VerdictChart({verdictStats}){
         <div>
 
 
-            <h3>
-                Verdict Analysis 📈
-            </h3>
+            <div className="chart-header">
+
+
+                <h3>
+                    Verdict Analysis
+                </h3>
+
+
+                <div>
+
+                    <span>
+                        AC Rate: {acRate}%
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+
 
 
 
             <ResponsiveContainer
 
-                width="100%"
+            width="100%"
 
-                height={300}
+            height={420}
 
             >
 
@@ -82,18 +161,29 @@ function VerdictChart({verdictStats}){
                 <PieChart>
 
 
-
                     <Pie
+
 
                     data={data}
 
+
                     dataKey="value"
+
 
                     nameKey="name"
 
-                    outerRadius={100}
 
-                    label
+                    innerRadius={65}
+
+
+                    outerRadius={115}
+
+
+                    paddingAngle={2}
+
+                    
+                    stroke="none"
+
 
                     >
 
@@ -108,7 +198,20 @@ function VerdictChart({verdictStats}){
 
                         key={index}
 
+
+                        fill={
+
+                        colorMap[entry.name]
+
+                        ||
+
+                        "#6B7280"
+
+                        }
+
+
                         />
+
 
                     ))
 
@@ -120,8 +223,32 @@ function VerdictChart({verdictStats}){
 
 
 
-                    <Tooltip />
 
+
+                    <Tooltip
+
+
+                    contentStyle={{
+
+
+                        background:"#252525",
+
+                        border:"none",
+
+                        borderRadius:"8px",
+
+                        color:"#fff"
+
+
+                    }}
+
+
+                    />
+
+
+
+
+                    <Legend />
 
 
                 </PieChart>
