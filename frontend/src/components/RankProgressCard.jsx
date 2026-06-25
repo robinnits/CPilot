@@ -14,7 +14,7 @@ function RankProgressCard({rankProgress}){
 
             <h2>
 
-                🚀 Road To {rankProgress.targetRank}
+                Road To {rankProgress.targetRank}
 
             </h2>
 
@@ -29,7 +29,7 @@ function RankProgressCard({rankProgress}){
 
                     ?
 
-                    "Start Your Journey 🌱"
+                    "Start Your Journey"
 
                     :
 

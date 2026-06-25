@@ -28,7 +28,7 @@ function RatingHistoryChart({ratingHistory}){
         return (
 
             <h3>
-                No rated contests yet 🚀
+                No rated contests yet
             </h3>
 
         );
@@ -80,7 +80,7 @@ function RatingHistoryChart({ratingHistory}){
 
             <h3>
 
-                Rating Journey 🚀
+                Rating Journey
 
             </h3>
 
