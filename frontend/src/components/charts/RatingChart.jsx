@@ -130,7 +130,7 @@ function RatingChart({ ratingStats }) {
 
                     stroke="#8B949E"
 
-                    interval={1}
+                    interval={2}
 
                     />
 
