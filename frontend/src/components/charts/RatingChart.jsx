@@ -25,6 +25,62 @@ function RatingChart({ ratingStats }) {
 
 
 
+
+    if(data.length === 0){
+
+
+        return (
+
+            <div>
+
+                <h3>
+                    Problems Solved by Rating
+                </h3>
+
+                <p>
+                    No rating data available
+                </p>
+
+            </div>
+
+        );
+
+    }
+
+
+
+
+
+    const mostSolved = data.reduce(
+
+        (max,item)=>
+
+            item.count > max.count
+            ?
+            item
+            :
+            max
+
+    );
+
+
+
+    const peakProblem =
+    Math.max(
+
+        ...data.map(
+
+            x=>Number(x.rating)
+
+        )
+
+    );
+
+
+
+
+
+
     const getColor = (rating)=>{
 
 
@@ -59,12 +115,14 @@ function RatingChart({ ratingStats }) {
 
 
 
-    if(data.length === 0){
+
+    return (
 
 
-        return (
+        <div>
 
-            <div>
+
+            <div className="chart-header">
 
 
                 <h3>
@@ -72,35 +130,35 @@ function RatingChart({ ratingStats }) {
                 </h3>
 
 
-                <p>
-                    No rating data available
-                </p>
+
+                <div>
+
+                    <span>
+                        Most Solved: {mostSolved.rating}
+                    </span>
+
+
+                    <span>
+                        Peak: {peakProblem}
+                    </span>
+
+
+                </div>
 
 
             </div>
 
-        );
 
 
-    }
-
-
-
-
-    return (
-
-        <div>
-
-
-            <h3>
-                Problems Solved by Rating
-            </h3>
 
 
 
             <ResponsiveContainer
+
             width="100%"
-            height={250}
+
+            height={300}
+
             >
 
 
@@ -131,7 +189,9 @@ function RatingChart({ ratingStats }) {
                     stroke="#8B949E"
 
                     interval={
+
                         data.length > 20 ? 1 : 0
+
                     }
 
                     />
@@ -186,13 +246,14 @@ function RatingChart({ ratingStats }) {
 
 
 
+
                     <Bar
 
                     dataKey="count"
 
                     radius={[4,4,0,0]}
 
-                    barSize={28}
+                    barSize={100}
 
                     >
 
@@ -207,7 +268,9 @@ function RatingChart({ ratingStats }) {
 
                         key={index}
 
-                        fill={getColor(entry.rating)}
+                        fill={
+                            getColor(entry.rating)
+                        }
 
                         />
 
@@ -221,13 +284,10 @@ function RatingChart({ ratingStats }) {
                     </Bar>
 
 
-
-
                 </BarChart>
 
 
             </ResponsiveContainer>
-
 
 
         </div>

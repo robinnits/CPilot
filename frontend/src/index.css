@@ -546,13 +546,44 @@ color:#aaa;
 }
 
 
+.chart-header{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+margin-bottom:15px;
+
+}
+
+
+.chart-header div{
+
+display:flex;
+
+gap:25px;
+
+}
+
+
+.chart-header span{
+
+font-size:14px;
+
+color:#aaa;
+
+}
+
+
 
 .chart-box{
 
     background:var(--bg-inner);
 
 
-    padding:28px 35px;
+    padding:24px 24px;
 
 
     border-radius:12px;
