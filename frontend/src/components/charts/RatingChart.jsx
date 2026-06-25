@@ -68,7 +68,7 @@ function RatingChart({ ratingStats }) {
 
 
                 <h3>
-                    Problems Solved by Rating 📊
+                    Problems Solved by Rating
                 </h3>
 
 
@@ -93,14 +93,14 @@ function RatingChart({ ratingStats }) {
 
 
             <h3>
-                Problems Solved by Rating 📊
+                Problems Solved by Rating
             </h3>
 
 
 
             <ResponsiveContainer
             width="100%"
-            height={300}
+            height={250}
             >
 
 
@@ -130,7 +130,9 @@ function RatingChart({ ratingStats }) {
 
                     stroke="#8B949E"
 
-                    interval={2}
+                    interval={
+                        data.length > 20 ? 1 : 0
+                    }
 
                     />
 

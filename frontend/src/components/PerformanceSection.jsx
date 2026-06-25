@@ -11,7 +11,7 @@ function PerformanceSection({ analytics }) {
 
 
             <h2>
-                Performance Analytics 📈
+                Performance Analytics
             </h2>
 
 

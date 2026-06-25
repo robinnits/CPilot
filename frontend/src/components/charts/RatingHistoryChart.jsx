@@ -54,7 +54,7 @@ function RatingHistoryChart({ratingHistory}){
 
             <h3>
 
-                Rating Progress 📈
+                Rating Progress
 
             </h3>
 
@@ -64,7 +64,7 @@ function RatingHistoryChart({ratingHistory}){
 
                 width="100%"
 
-                height={350}
+                height={250}
 
             >
 

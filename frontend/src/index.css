@@ -312,7 +312,7 @@ button{
     35px auto;
 
 
-    padding:35px;
+    padding:30px;
 
 
 
@@ -323,7 +323,7 @@ button{
     border:none;
 
 
-    border-radius:14px;
+    border-radius:10px;
 
 
 }
@@ -544,10 +544,10 @@ font-size:15px;
 
     grid-template-columns:
 
-    repeat(2,1fr);
+    repeat(1fr,1fr);
 
 
-    gap:25px;
+    gap:20px;
 
 
 }
