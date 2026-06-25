@@ -505,6 +505,36 @@ button{
 ================================== */
 
 
+.journey-header{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+margin-bottom:20px;
+
+}
+
+
+.journey-header div{
+
+display:flex;
+
+gap:25px;
+
+}
+
+
+.journey-header span{
+
+font-size:14px;
+
+color:#aaa;
+
+}
+
 .performance-grid{
 
     display:flex;
