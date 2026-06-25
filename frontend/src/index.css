@@ -337,16 +337,14 @@ button{
 
 .profile-card{
 
+    display:flex;
 
-display:flex;
+    align-items:center;
 
-align-items:center;
-
-gap:70px;
+    gap:65px;
 
 
-padding:45px 60px;
-
+    padding:38px 60px;
 
 }
 
@@ -354,16 +352,14 @@ padding:45px 60px;
 
 .profile-avatar{
 
+    width:165px !important;
 
-width:180px !important;
-
-height:180px !important;
+    height:165px !important;
 
 
-border-radius:12px;
+    border-radius:12px;
 
-object-fit:cover;
-
+    object-fit:cover;
 
 }
 
@@ -371,9 +367,7 @@ object-fit:cover;
 
 .profile-info{
 
-
-flex:1;
-
+    flex:1;
 
 }
 
@@ -381,13 +375,11 @@ flex:1;
 
 .profile-info h1{
 
+    font-size:28px;
 
-font-size:30px;
+    font-weight:700;
 
-font-weight:700;
-
-margin-bottom:5px;
-
+    margin-bottom:4px;
 
 }
 
@@ -395,29 +387,24 @@ margin-bottom:5px;
 
 .rank-text{
 
+    font-size:16px;
 
-font-size:17px;
-
-font-weight:700;
-
+    font-weight:700;
 
 }
 
 
 
-
 .profile-stats{
 
+    display:flex;
 
-display:flex;
-
-gap:90px;
+    gap:85px;
 
 
-margin-top:45px;
+    margin-top:35px;
 
-margin-bottom:45px;
-
+    margin-bottom:32px;
 
 }
 
@@ -425,11 +412,9 @@ margin-bottom:45px;
 
 .profile-stats span{
 
+    font-size:14px;
 
-font-size:15px;
-
-color:#aaa;
-
+    color:#aaa;
 
 }
 
@@ -437,16 +422,13 @@ color:#aaa;
 
 .profile-stats strong{
 
+    font-size:22px;
 
-font-size:24px;
+    font-weight:600;
 
-font-weight:600;
-
-color:white;
-
+    color:white;
 
 }
-
 
 
 /* ROAD */
@@ -454,9 +436,7 @@ color:white;
 
 .road-card{
 
-
-max-width:700px;
-
+    max-width:850px;
 
 }
 
@@ -464,9 +444,7 @@ max-width:700px;
 
 .road-card h2{
 
-
-font-size:22px;
-
+    font-size:20px;
 
 }
 
@@ -474,11 +452,9 @@ font-size:22px;
 
 .road-card h3{
 
+    font-size:18px;
 
-font-size:20px;
-
-margin:15px 0;
-
+    margin:12px 0;
 
 }
 
@@ -486,19 +462,17 @@ margin:15px 0;
 
 .progress-bar{
 
+    width:100%;
 
-width:100%;
-
-height:12px;
-
-
-background:#3a3a3a;
-
-border-radius:30px;
+    height:10px;
 
 
-overflow:hidden;
+    background:#3a3a3a;
 
+    border-radius:30px;
+
+
+    overflow:hidden;
 
 }
 
@@ -506,26 +480,21 @@ overflow:hidden;
 
 .progress-fill{
 
+    height:100%;
 
-height:100%;
+    background:#00C853;
 
-
-background:#00C853;
-
-
-border-radius:30px;
-
+    border-radius:30px;
 
 }
 
 
+
 .road-card p{
 
+    margin-top:12px;
 
-margin-top:15px;
-
-font-size:15px;
-
+    font-size:14px;
 
 }
 
@@ -538,17 +507,11 @@ font-size:15px;
 
 .performance-grid{
 
+    display:flex;
 
-    display:grid;
+    flex-direction:column;
 
-
-    grid-template-columns:
-
-    repeat(1fr,1fr);
-
-
-    gap:20px;
-
+    gap:28px;
 
 }
 
@@ -556,15 +519,16 @@ font-size:15px;
 
 .chart-box{
 
-
     background:var(--bg-inner);
 
 
-    padding:28px;
+    padding:28px 35px;
 
 
     border-radius:12px;
 
+
+    min-height:380px;
 
 }
 

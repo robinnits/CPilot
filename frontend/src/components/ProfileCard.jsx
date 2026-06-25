@@ -201,7 +201,18 @@ return (
 
             <h2>
 
-                Road To {progress.targetRank}
+                Road To{" "}
+
+                <span
+                style={{
+                    color:getRankColor(progress.targetRating),
+                    fontWeight:"700"
+                }}
+                >
+
+                    {progress.targetRank}
+
+                </span>
 
             </h2>
 
