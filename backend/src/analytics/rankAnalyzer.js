@@ -7,86 +7,28 @@ const {
 
 
 
-const getNextRank = (rating)=>{
 
+const ranks = [
 
+    {name:"Pupil", rating:1200},
 
-    if(rating < 1200){
+    {name:"Specialist", rating:1400},
 
+    {name:"Expert", rating:1600},
 
-        return {
+    {name:"Candidate Master", rating:1900},
 
-            rank:"Pupil",
+    {name:"Master", rating:2100},
 
-            target:1200
+    {name:"International Master", rating:2300},
 
-        };
+    {name:"Grandmaster", rating:2400},
 
+    {name:"International Grandmaster", rating:2600},
 
-    }
+    {name:"Legendary Grandmaster", rating:3000}
 
-
-
-    if(rating < 1400){
-
-
-        return {
-
-            rank:"Specialist",
-
-            target:1400
-
-        };
-
-
-    }
-
-
-
-    if(rating < 1600){
-
-
-        return {
-
-            rank:"Expert",
-
-            target:1600
-
-        };
-
-
-    }
-
-
-
-    if(rating < 1900){
-
-
-        return {
-
-            rank:"Candidate Master",
-
-            target:1900
-
-        };
-
-
-    }
-
-
-
-    return {
-
-        rank:"Master",
-
-        target:2100
-
-    };
-
-
-
-};
-
+];
 
 
 
@@ -114,84 +56,52 @@ const analyzeRankProgress = (
 
             type:"BEGINNER",
 
-
             currentRating:"Unrated",
-
 
             targetRank:"Pupil",
 
-
             targetRating:1200,
-
 
             ratingNeeded:null,
 
-
             progress:null,
+
+            achieved:false,
 
 
             focusAreas:[
 
-
                 {
-
                     skill:"implementation",
-
                     score:0,
-
                     level:"Need Practice"
-
                 },
 
-
                 {
-
                     skill:"math",
-
                     score:0,
-
                     level:"Need Practice"
-
                 },
 
-
                 {
-
                     skill:"greedy",
-
                     score:0,
-
                     level:"Need Practice"
-
                 },
 
-
                 {
-
                     skill:"brute force",
-
                     score:0,
-
                     level:"Need Practice"
-
                 }
 
-
             ]
-
 
         };
 
 
-
     }
 
-
-
-
-    const nextRank =
-
-    getNextRank(currentRating);
 
 
 
@@ -205,13 +115,11 @@ const analyzeRankProgress = (
 
 
 
-
-
     const focusAreas =
 
+    requiredSkills
 
-    requiredSkills.map(skill=>{
-
+    .map(skill=>{
 
 
         return {
@@ -250,18 +158,81 @@ const analyzeRankProgress = (
         };
 
 
-
     })
 
 
-    .sort(
-
-        (a,b)=>a.score-b.score
-
-    )
+    .sort((a,b)=>a.score-b.score)
 
 
     .slice(0,5);
+
+
+
+
+
+
+
+    let nextRank=null;
+
+
+
+    for(let rank of ranks){
+
+
+        if(currentRating < rank.rating){
+
+
+            nextRank=rank;
+
+            break;
+
+
+        }
+
+
+    }
+
+
+
+
+
+
+
+    // tourist / LGM edge case
+
+    if(!nextRank){
+
+
+
+        return {
+
+
+            currentRating:currentRating,
+
+
+            targetRank:"Legendary Grandmaster",
+
+
+            targetRating:3000,
+
+
+            ratingNeeded:0,
+
+
+            progress:100,
+
+
+            achieved:true,
+
+
+            focusAreas:focusAreas
+
+
+        };
+
+
+
+    }
 
 
 
@@ -276,7 +247,7 @@ const analyzeRankProgress = (
 
         currentRating /
 
-        nextRank.target *
+        nextRank.rating *
 
         100
 
@@ -291,17 +262,16 @@ const analyzeRankProgress = (
 
 
 
-
     return {
 
 
         currentRating:currentRating,
 
 
-        targetRank:nextRank.rank,
+        targetRank:nextRank.name,
 
 
-        targetRating:nextRank.target,
+        targetRating:nextRank.rating,
 
 
         ratingNeeded:
@@ -310,7 +280,7 @@ const analyzeRankProgress = (
 
             0,
 
-            nextRank.target-currentRating
+            nextRank.rating-currentRating
 
         ),
 
@@ -318,6 +288,8 @@ const analyzeRankProgress = (
 
         progress:progress,
 
+
+        achieved:false,
 
 
         focusAreas:focusAreas
@@ -334,12 +306,8 @@ const analyzeRankProgress = (
 
 
 
-
-
 module.exports={
 
-
     analyzeRankProgress
-
 
 };
