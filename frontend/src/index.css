@@ -197,17 +197,15 @@ button{
 .search-container{
 
 
-    width:40%;
+    width:38%;
 
 
-    margin:
-
-    50px auto;
+    margin:28px auto 35px auto;
 
 
     display:flex;
 
-    gap:15px;
+    gap:14px;
 
 
 }
@@ -232,7 +230,7 @@ button{
 
 
 
-    padding:12px;
+    padding:10px 12px;
 
 
     color:var(--text-main);
@@ -241,7 +239,7 @@ button{
     text-align:center;
 
 
-    font-size:18px;
+    font-size:17px;
 
 
 }
@@ -275,10 +273,10 @@ button{
 
     padding:
 
-    10px 28px;
+    10px 24px;
 
 
-    border-radius:8px;
+    border-radius:10px;
 
 
     font-size:15px;
@@ -651,7 +649,7 @@ button{
 
 .navbar{
 
-height:80px;
+height:65px;
 
 padding:0 45px;
 
