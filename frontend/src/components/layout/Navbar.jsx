@@ -16,11 +16,11 @@ return (
         </h1>
 
 
-        <p>
+        {/* <p>
 
         Your Competitive Programming Co-Pilot
 
-        </p>
+        </p> */}
 
 
     </div>

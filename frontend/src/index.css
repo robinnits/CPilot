@@ -200,7 +200,7 @@ button{
     width:38%;
 
 
-    margin:28px auto 35px auto;
+    margin:25px auto 35px auto;
 
 
     display:flex;
@@ -307,7 +307,7 @@ button{
 
     margin:
 
-    35px auto;
+    25px auto;
 
 
     padding:30px;
@@ -649,7 +649,7 @@ button{
 
 .navbar{
 
-height:65px;
+height:50px;
 
 padding:0 45px;
 
@@ -773,7 +773,7 @@ font-size:18px;
 .skill-card{
 
 
-    margin-top:35px;
+    margin-top:25px;
 
 
 }
