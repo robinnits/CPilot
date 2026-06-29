@@ -376,9 +376,9 @@ function HeatmapChart({ heatmapStats }) {
                 style={{
                     background: "#1f1f1f",
                     color: "#ffffff",
-                    borderRadius: "8px",
+                    borderRadius: "12px",
                     padding: "4px 8px",
-                    fontSize: "10px",
+                    fontSize: "12px",
                     border: "1px solid #3a3a3a"
                 }}
             />

@@ -882,7 +882,7 @@ white-space:nowrap;
     padding:38px 40px;
 }
 
-.react-calendar-heatmap .color-empty{fill:#404040 !important;}
+.react-calendar-heatmap .color-empty{fill:#3f3f3f !important;}
 
 .react-calendar-heatmap .color-scale-1{ fill: #1B5E20; }
 
@@ -986,5 +986,5 @@ white-space:nowrap;
 
     overflow-x:auto;
 
-    border:none;
+    border:#353535;
 }
