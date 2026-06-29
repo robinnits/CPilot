@@ -875,3 +875,116 @@ font-size:15px;
 white-space:nowrap;
 
 }
+
+.heatmap-card{
+    width:90%;
+    max-width:1500px;
+    padding:38px 40px;
+}
+
+.react-calendar-heatmap .color-empty{fill:#404040 !important;}
+
+.react-calendar-heatmap .color-scale-1{ fill: #1B5E20; }
+
+.react-calendar-heatmap .color-scale-2{ fill: #2E7D32; }
+
+.react-calendar-heatmap .color-scale-3{ fill: #43A047; }
+
+.react-calendar-heatmap .color-scale-4{ fill: #66BB6A; }
+
+.heatmap-header{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    margin-bottom:30px;
+
+}
+
+.heatmap-title{
+
+    font-size:24px;
+    font-weight:400;
+    color:#b5b5b5;
+
+}
+
+.submission-count{
+
+    font-size:22px;
+    font-weight:600;
+    color:white;
+
+}
+
+.heatmap-stats{
+
+    display:flex;
+    align-items:center;
+    gap:24px;
+
+    font-size:18px;
+    color:#9ca3af;
+
+}
+
+.heatmap-select{
+    background:#363636;
+
+    border:1px solid transparent;
+
+    border-radius:12px;
+
+    padding:10px 20px;
+
+    color:white;
+    font-size:18px;
+
+    transition:0.2s ease;
+
+    appearance:none;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+
+    outline:none;
+    box-shadow:none;
+}
+
+.heatmap-select:hover{
+    background:#404040;
+}
+
+.heatmap-select:focus,
+.heatmap-select:active,
+.heatmap-select:focus-visible{
+    outline:none;
+    box-shadow:none;
+
+    background:#3d3d3d;
+
+    border:1px solid transparent;
+}
+
+.react-calendar-heatmap rect{
+    margin-top:-8px;
+    rx:1.5;
+    ry:1.5;
+    stroke-width:1px;
+    stroke:#2a2a2a;
+    
+}
+
+.heatmap-grid-box{
+    margin-top:20px;
+
+    background:#2d2d2d;
+
+    border-radius:24px;
+
+    padding:16px 20px;
+
+    overflow-x:auto;
+
+    border:none;
+}

@@ -283,13 +283,13 @@ function App(){
 
 
 
-                    <HeatmapChart
+                    <div className="card heatmap-card">
 
-                    heatmapStats={
-                        analytics.heatmapStats
-                    }
+                        <HeatmapChart
+                            heatmapStats={analytics.heatmapStats}
+                        />
 
-                    />
+                    </div>
 
 
 
