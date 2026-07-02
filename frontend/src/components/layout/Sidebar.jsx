@@ -1,6 +1,7 @@
 function Sidebar({
     activePage,
-    setActivePage
+    setActivePage,
+    analytics
 }){
 
     return(
@@ -26,6 +27,9 @@ function Sidebar({
                     ? "active"
                     : ""
                 }
+
+                disabled={!analytics}
+
                 onClick={()=>
                     setActivePage("training")
                 }

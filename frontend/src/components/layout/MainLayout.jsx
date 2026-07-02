@@ -3,7 +3,8 @@ import Sidebar from "./Sidebar";
 function MainLayout({
     children,
     activePage,
-    setActivePage
+    setActivePage,
+    analytics
 }){
 
     return(
@@ -13,6 +14,7 @@ function MainLayout({
             <Sidebar
                 activePage={activePage}
                 setActivePage={setActivePage}
+                analytics={analytics}
             />
 
             <main className="main-content">

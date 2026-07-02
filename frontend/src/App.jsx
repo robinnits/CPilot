@@ -134,6 +134,7 @@ function App(){
         <MainLayout
             activePage={activePage}
             setActivePage={setActivePage}
+            analytics={analytics}
         >
 
             {
