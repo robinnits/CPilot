@@ -1,0 +1,46 @@
+.sidebar{
+    width:220px;
+    min-height:100vh;
+
+    background:#111111;
+    border-right:1px solid #2d2d2d;
+
+    padding:30px 20px;
+
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+
+    position:sticky;
+    top:0;
+}
+
+.sidebar button{
+    background:transparent;
+    border:none;
+
+    color:#9ca3af;
+
+    font-size:16px;
+    font-weight:500;
+
+    text-align:left;
+
+    padding:14px 18px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    transition:0.2s;
+}
+
+.sidebar button:hover{
+    background:#222222;
+    color:white;
+}
+
+.sidebar button.active{
+    background:#2563eb;
+    color:white;
+}

@@ -1,3 +1,4 @@
+@import "./styles/sidebar.css";
 @import "tailwindcss";
 
 
@@ -985,4 +986,18 @@ white-space:nowrap;
     overflow-x:auto;
 
     border:#353535;
+}
+
+.main-layout{
+    display:flex;
+    min-height:100vh;
+}
+
+.main-content{
+    flex:1;
+    padding:20px 40px;
+}
+
+.sidebar{
+    width:180px;
 }
