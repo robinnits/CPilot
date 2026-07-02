@@ -990,14 +990,21 @@ white-space:nowrap;
 
 .main-layout{
     display:flex;
-    min-height:100vh;
 }
 
 .main-content{
     flex:1;
-    padding:20px 40px;
 }
 
 .sidebar{
     width:180px;
+    min-height:100vh;
+
+    background:#111111;
+    border-right:1px solid var(--border);
+
+    padding:30px 20px;
+
+    display:flex;
+    flex-direction:column;
 }
