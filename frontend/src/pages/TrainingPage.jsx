@@ -1,19 +1,37 @@
-function TrainingPage(){
+import SkillCard from "../components/SkillCard";
+import RecommendationCard from "../components/RecommendationCard";
+import TrainingOverviewCard from "../components/TrainingOverviewCard";
 
-    return(
+function TrainingPage({ analytics }) {
 
-        <div>
+    const overview = {
+        priorityTopic: "Graphs",
+        weakTopics: 5,
+        suggestedProblems: 27,
+        targetDifficulty: "1300-1400"
+    };
 
-            <h1>Training Center</h1>
+    return (
+        <div className="training-page">
 
-            <p>
-                Coming Soon...
-            </p>
+            <div className="training-grid">
+
+                <SkillCard
+                    focusAnalysis={analytics?.focusAnalysis}
+                />
+
+                <TrainingOverviewCard
+                    overview={overview}
+                />
+
+            </div>
+
+            <RecommendationCard
+                recommendations={analytics?.recommendations}
+            />
 
         </div>
-
     );
-
 }
 
 export default TrainingPage;

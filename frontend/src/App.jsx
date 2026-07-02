@@ -227,18 +227,6 @@ function App(){
 
                                     </div>
 
-                                    <SkillCard
-                                        focusAnalysis={
-                                            analytics.focusAnalysis
-                                        }
-                                    />
-
-                                    <RecommendationCard
-                                        recommendations={
-                                            analytics.recommendations
-                                        }
-                                    />
-
                                 </>
 
                             )

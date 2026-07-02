@@ -1008,3 +1008,18 @@ white-space:nowrap;
     display:flex;
     flex-direction:column;
 }
+
+.training-page{
+    width:100%;
+}
+
+.training-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:24px;
+
+    width:90%;
+    max-width:1500px;
+
+    margin:0 auto 24px auto;
+}
