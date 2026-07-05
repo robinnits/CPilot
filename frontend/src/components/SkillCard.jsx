@@ -1,178 +1,101 @@
-function SkillCard({focusAnalysis}){
+function SkillCard({ focusAnalysis }) {
 
+    if (!focusAnalysis) return null;
 
     return (
 
-        <div>
+        <div className="card training-skill-card">
 
-
-            <h2>
-                Skill Analysis 🧠
+            <h2 className="training-card-title">
+                Skill Analysis
             </h2>
 
+            <div className="skill-section">
 
+                <h3 className="skill-section-title">
+                    Priority Focus
+                </h3>
 
+                {
+                    focusAnalysis.focusAreas.map(skill => (
 
+                        <div
+                            className="skill-item"
+                            key={skill.skill}
+                        >
 
-            <h3>
-                Priority Focus 🎯
-            </h3>
+                            <div className="skill-top-row">
 
+                                <span className="skill-name">
+                                    {skill.skill}
+                                </span>
 
+                                <span className="skill-score">
+                                    {skill.score}/100
+                                </span>
 
+                            </div>
 
+                            <div className="skill-bottom-row">
 
-            {
+                                <span className={`skill-level ${skill.level.toLowerCase()}`}>
+                                    {skill.level}
+                                </span>
 
-                focusAnalysis.focusAreas.length === 0
+                            </div>
 
-                ?
+                        </div>
 
-                <p>
-                    Great! No major priority weakness 🎉
-                </p>
+                    ))
+                }
 
-                :
+            </div>
 
-                focusAnalysis.focusAreas.map(skill=>(
+            <div className="skill-section">
 
+                <h3 className="skill-section-title">
+                    Other Weaknesses
+                </h3>
 
-                    <div key={skill.skill}>
+                {
+                    focusAnalysis.otherWeakness.map(skill => (
 
+                        <div
+                            className="skill-item"
+                            key={skill.skill}
+                        >
 
-                        <h4>
+                            <div className="skill-top-row">
 
-                            {skill.skill}
+                                <span className="skill-name">
+                                    {skill.skill}
+                                </span>
 
-                        </h4>
+                                <span className="skill-score">
+                                    {skill.score}/100
+                                </span>
 
+                            </div>
 
+                            <div className="skill-bottom-row">
 
-                        <p>
+                                <span className={`skill-level ${skill.level.toLowerCase()}`}>
+                                    {skill.level}
+                                </span>
 
-                            Score:
+                            </div>
 
-                            {" "}
+                        </div>
 
-                            {skill.score}
+                    ))
+                }
 
-                            /100
-
-                        </p>
-
-
-
-
-                        <p>
-
-                            Status:
-
-                            {" "}
-
-                            {skill.level}
-
-                        </p>
-
-
-
-                    </div>
-
-
-                ))
-
-            }
-
-
-
-
-
-
-
-            <h3>
-
-                Other Weakness 🧠
-
-            </h3>
-
-
-
-
-
-
-            {
-
-                focusAnalysis.otherWeakness.length === 0
-
-                ?
-
-                <p>
-
-                    No other major weakness 🚀
-
-                </p>
-
-                :
-
-                focusAnalysis.otherWeakness.map(skill=>(
-
-
-                    <div key={skill.skill}>
-
-
-                        <h4>
-
-                            {skill.skill}
-
-                        </h4>
-
-
-
-
-                        <p>
-
-                            Score:
-
-                            {" "}
-
-                            {skill.score}
-
-                            /100
-
-                        </p>
-
-
-
-
-                        <p>
-
-                            Status:
-
-                            {" "}
-
-                            {skill.level}
-
-                        </p>
-
-
-
-                    </div>
-
-
-                ))
-
-            }
-
-
-
+            </div>
 
         </div>
 
-
     );
 
-
 }
-
-
 
 export default SkillCard;
