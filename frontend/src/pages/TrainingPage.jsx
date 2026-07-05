@@ -14,21 +14,73 @@ function TrainingPage({ analytics }) {
     return (
         <div className="training-page">
 
-            <div className="training-grid">
+            <div className="training-top-grid">
 
-                <SkillCard
-                    focusAnalysis={analytics?.focusAnalysis}
-                />
+                <div className="card training-skill-card">
+                    <SkillCard
+                        focusAnalysis={
+                            analytics.focusAnalysis
+                        }
+                    />
+                </div>
 
-                <TrainingOverviewCard
-                    overview={overview}
-                />
+                <div className="card training-overview-card">
+
+                    <h2>Training Overview</h2>
+
+                    <div className="overview-item">
+                        <span className="overview-label">
+                            Priority Topic
+                        </span>
+
+                        <span className="overview-value">
+                            Graphs
+                        </span>
+                    </div>
+
+                    <div className="overview-item">
+                        <span className="overview-label">
+                            Weak Topics
+                        </span>
+
+                        <span className="overview-value">
+                            5
+                        </span>
+                    </div>
+
+                    <div className="overview-item">
+                        <span className="overview-label">
+                            Suggested Problems
+                        </span>
+
+                        <span className="overview-value">
+                            27
+                        </span>
+                    </div>
+
+                    <div className="overview-item">
+                        <span className="overview-label">
+                            Target Difficulty
+                        </span>
+
+                        <span className="overview-value">
+                            1300 - 1400
+                        </span>
+                    </div>
+
+                </div>
 
             </div>
 
-            <RecommendationCard
-                recommendations={analytics?.recommendations}
-            />
+            <div className="card recommendation-section">
+
+                <RecommendationCard
+                    recommendations={
+                        analytics.recommendations
+                    }
+                />
+
+            </div>
 
         </div>
     );

@@ -1028,3 +1028,181 @@ white-space:nowrap;
     opacity:0.45;
     cursor:not-allowed;
 }
+.training-page{
+    width:100%;
+}
+
+.training-top-grid{
+    display:grid;
+
+    grid-template-columns:
+    2fr 1fr;
+
+    gap:24px;
+
+    margin-bottom:24px;
+}
+
+.training-skill-card,
+.training-overview-card{
+    align-self:start;
+}
+
+.recommendation-section{
+    width:100%;
+}
+
+.training-overview-card{
+    padding:32px;
+}
+
+.training-overview-card h2{
+    font-size:28px;
+    margin-bottom:30px;
+
+    color:white;
+}
+
+.overview-item{
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:18px 0;
+
+    border-bottom:
+    1px solid #333;
+}
+
+.overview-item:last-child{
+    border:none;
+}
+
+.overview-label{
+    color:#9ca3af;
+
+    font-size:17px;
+}
+
+.overview-value{
+    color:white;
+
+    font-size:22px;
+
+    font-weight:700;
+}
+
+.skill-progress-bar{
+    width:85%;
+    height:8px;
+
+    background:#2f2f2f;
+
+    border-radius:999px;
+
+    overflow:hidden;
+
+    margin-top:10px;
+    margin-bottom:10px;
+}
+
+.skill-progress-fill{
+    height:100%;
+    border-radius:999px;
+}
+
+.skill-progress-fill.weak{
+    background:#ef4444;
+}
+
+.skill-progress-fill.average{
+    background:#f59e0b;
+}
+
+.skill-progress-fill.strong{
+    background:#22c55e;
+}
+
+.skill-item{
+    padding:18px 0;
+    border-bottom:1px solid #303030;
+}
+
+.skill-item:last-child{
+    border:none;
+}
+
+.skill-top-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    margin-bottom:10px;
+}
+
+.skill-name{
+    font-size:18px;
+    color:white;
+    font-weight:600;
+    text-transform:capitalize;
+}
+
+.skill-score{
+    color:#9ca3af;
+    font-size:16px;
+}
+
+.skill-bottom-row{
+    margin-top:10px;
+}
+
+.skill-section-title{
+    font-size:24px;
+    font-weight:700;
+
+    margin-top:30px;
+    margin-bottom:20px;
+
+    color:white;
+}
+
+.skill-section:first-child
+.skill-section-title{
+    margin-top:0;
+}
+
+.problem-meta{
+    display:flex;
+    gap:10px;
+
+    margin-top:6px;
+}
+
+.problem-rating{
+    color:#9ca3af;
+}
+
+.problem-zone{
+    padding:4px 10px;
+    border-radius:999px;
+
+    font-size:12px;
+    font-weight:600;
+}
+
+.problem-zone.warmup{
+    background:#15361f;
+    color:#4ade80;
+}
+
+.problem-zone.growth{
+    background:#1e3a8a;
+    color:#60a5fa;
+}
+
+.problem-zone.challenge{
+    background:#7c2d12;
+    color:#fb923c;
+}

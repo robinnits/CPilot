@@ -36,9 +36,22 @@ function SkillCard({ focusAnalysis }) {
 
                             </div>
 
+                                                        <div className="skill-progress-bar">
+
+                                <div
+                                    className={`skill-progress-fill ${skill.level.toLowerCase()}`}
+                                    style={{
+                                        width: `${skill.score}%`
+                                    }}
+                                />
+
+                            </div>
+
                             <div className="skill-bottom-row">
 
-                                <span className={`skill-level ${skill.level.toLowerCase()}`}>
+                                <span
+                                    className={`skill-level ${skill.level.toLowerCase()}`}
+                                >
                                     {skill.level}
                                 </span>
 
@@ -77,9 +90,22 @@ function SkillCard({ focusAnalysis }) {
 
                             </div>
 
+                                                        <div className="skill-progress-bar">
+
+                                <div
+                                    className={`skill-progress-fill ${skill.level.toLowerCase()}`}
+                                    style={{
+                                        width: `${skill.score}%`
+                                    }}
+                                />
+
+                            </div>
+
                             <div className="skill-bottom-row">
 
-                                <span className={`skill-level ${skill.level.toLowerCase()}`}>
+                                <span
+                                    className={`skill-level ${skill.level.toLowerCase()}`}
+                                >
                                     {skill.level}
                                 </span>
 

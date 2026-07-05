@@ -44,9 +44,15 @@ function RecommendationCard({ recommendations }) {
                                         </div>
 
                                         <div className="problem-meta">
-                                            {problem.rating}
-                                            {" • "}
-                                            {problem.zone}
+
+                                            <span className="problem-rating">
+                                                {problem.rating}
+                                            </span>
+
+                                            <span className={`problem-zone ${problem.zone.toLowerCase()}`}>
+                                                {problem.zone}
+                                            </span>
+
                                         </div>
 
                                     </div>
