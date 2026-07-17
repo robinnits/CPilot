@@ -24,14 +24,15 @@ const analyzeFocusAreas = (
 
     .forEach(([skill,data])=>{
 
+        
+
 
         if(
 
-            data.level === "Weak" &&
-
             !prioritySkills.includes(skill)
 
-        ){
+        )
+        {
 
 
             otherWeakness.push({
@@ -44,11 +45,11 @@ const analyzeFocusAreas = (
 
 
             });
-
-
+            
+            
         }
-
-
+        
+        
     });
 
 
@@ -69,6 +70,7 @@ const analyzeFocusAreas = (
             (a,b)=>a.score-b.score
 
         )
+        .slice(0,6)
 
 
     };
