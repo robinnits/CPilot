@@ -21,9 +21,16 @@ function RecommendationCard({ recommendations }) {
                             className="recommendation-topic-card"
                         >
 
-                            <h3 className="topic-title">
-                                {topic}
-                            </h3>
+                            <div className="topic-header">
+
+                                <h3 className="topic-title">
+                                    {topic}
+                                </h3>
+
+                                <span className="topic-count">
+                                    {problems.length} {problems.length === 1 ? "Problem" : "Problems"}                                </span>
+
+                            </div>
 
                             {
                                 problems.map(problem => (

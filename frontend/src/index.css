@@ -1290,6 +1290,8 @@ white-space:nowrap;
 }
 
 .topic-title{
+
+    margin: 0;
     font-size:20px;
     font-weight:700;
 
@@ -1298,6 +1300,28 @@ white-space:nowrap;
     color:white;
 
     text-transform:capitalize;
+}
+
+.topic-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:20px;
+
+}
+
+.topic-count{
+
+    font-size:13px;
+
+    color:#9ca3af;
+
+    font-weight:500;
+
 }
 
 .problem-row{
