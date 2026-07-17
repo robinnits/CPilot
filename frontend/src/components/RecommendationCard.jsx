@@ -4,79 +4,80 @@ function RecommendationCard({ recommendations }) {
 
     return (
 
-        <div className="card recommendation-card">
+        <div className="recommendation-wrapper">
 
             <h2 className="training-card-title">
                 Recommended Problems
             </h2>
 
-            {
+            <div className="recommendation-grid">
 
-                Object.entries(recommendations)
+                {
+                    Object.entries(recommendations)
+                    .map(([topic, problems]) => (
 
-                .map(([topic, problems]) => (
+                        <div
+                            key={topic}
+                            className="recommendation-topic-card"
+                        >
 
-                    <div
-                        key={topic}
-                        className="recommendation-topic"
-                    >
+                            <h3 className="topic-title">
+                                {topic}
+                            </h3>
 
-                        <h3 className="topic-title">
-                            {topic}
-                        </h3>
+                            {
+                                problems.map(problem => (
 
-                        {
+                                    <div
+                                        key={
+                                            problem.contestId +
+                                            problem.index
+                                        }
+                                        className="problem-row"
+                                    >
 
-                            problems.map(problem => (
+                                        <div>
 
-                                <div
-                                    className="problem-card"
-                                    key={
-                                        problem.contestId +
-                                        problem.index
-                                    }
-                                >
+                                            <div className="problem-name">
+                                                {problem.name}
+                                            </div>
 
-                                    <div>
+                                            <div className="problem-meta">
 
-                                        <div className="problem-name">
-                                            {problem.name}
+                                                <span className="problem-rating">
+                                                    {problem.rating}
+                                                </span>
+
+                                                <span
+                                                    className={`problem-zone ${problem.zone.toLowerCase()}`}
+                                                >
+                                                    {problem.zone}
+                                                </span>
+
+                                            </div>
+
                                         </div>
 
-                                        <div className="problem-meta">
-
-                                            <span className="problem-rating">
-                                                {problem.rating}
-                                            </span>
-
-                                            <span className={`problem-zone ${problem.zone.toLowerCase()}`}>
-                                                {problem.zone}
-                                            </span>
-
-                                        </div>
+                                        <a
+                                            href={`https://codeforces.com/problemset/problem/${problem.contestId}/${problem.index}`}
+                                            target="_blank"
+                                            rel="noreferrer"
+                                            className="solve-button"
+                                        >
+                                            Solve
+                                        </a>
 
                                     </div>
 
-                                    <a
-                                        className="solve-button"
-                                        href={`https://codeforces.com/problemset/problem/${problem.contestId}/${problem.index}`}
-                                        target="_blank"
-                                        rel="noreferrer"
-                                    >
-                                        Solve
-                                    </a>
+                                ))
+                            }
 
-                                </div>
+                        </div>
 
-                            ))
+                    ))
+                }
 
-                        }
-
-                    </div>
-
-                ))
-
-            }
+            </div>
 
         </div>
 

@@ -997,7 +997,7 @@ white-space:nowrap;
 }
 
 .sidebar{
-    width:180px;
+    width:150px;
     min-height:100vh;
 
     background:#111111;
@@ -1033,65 +1033,19 @@ white-space:nowrap;
 }
 
 .training-top-grid{
-    display:grid;
+    width:90%;
+    max-width:1500px;
 
-    grid-template-columns:
-    2fr 1fr;
-
-    gap:24px;
-
-    margin-bottom:24px;
+    margin:25px auto;
+    display: block;
 }
 
-.training-skill-card,
-.training-overview-card{
+.training-skill-card{
     align-self:start;
 }
 
 .recommendation-section{
     width:100%;
-}
-
-.training-overview-card{
-    padding:32px;
-}
-
-.training-overview-card h2{
-    font-size:28px;
-    margin-bottom:30px;
-
-    color:white;
-}
-
-.overview-item{
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    padding:18px 0;
-
-    border-bottom:
-    1px solid #333;
-}
-
-.overview-item:last-child{
-    border:none;
-}
-
-.overview-label{
-    color:#9ca3af;
-
-    font-size:17px;
-}
-
-.overview-value{
-    color:white;
-
-    font-size:22px;
-
-    font-weight:700;
 }
 
 .skill-progress-bar{
@@ -1126,7 +1080,7 @@ white-space:nowrap;
 }
 
 .skill-item{
-    padding:18px 0;
+    padding:22px 0;
     border-bottom:1px solid #303030;
 }
 
@@ -1205,4 +1159,124 @@ white-space:nowrap;
 .problem-zone.challenge{
     background:#7c2d12;
     color:#fb923c;
+}
+
+.skill-columns{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+}
+
+.skill-section{
+
+    background:#2d2d2d;
+
+    border:1px solid #3a3a3a;
+
+    border-radius:18px;
+
+    padding:34px;
+
+}
+
+.recommendation-wrapper{
+
+    width:90%;
+
+    max-width:1500px;
+
+    margin:25px auto;
+
+    background:var(--bg-card);
+
+    border-radius:12px;
+
+    padding:34px;
+}
+
+.recommendation-grid{
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(340px,1fr));
+
+    gap:28px;
+
+    margin-top:25px;
+}
+
+.recommendation-topic-card{
+
+    background:#2d2d2d;
+
+    border:1px solid #3b3b3b;
+
+    border-radius:16px;
+
+    padding:28px;
+
+    transition:.25s;
+
+}
+
+.recommendation-topic-card:hover{
+
+    transform:translateY(-4px);
+
+    /* border-color:#4f7fff; */
+
+}
+
+.topic-title{
+    font-size:28px;
+    font-weight:700;
+
+    margin-bottom:28px;
+
+    color:white;
+
+    text-transform:capitalize;
+}
+
+.problem-row{
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:18px 0;
+
+    border-bottom:1px solid #3a3a3a;
+}
+
+.problem-row:last-child{
+    border:none;
+}
+
+.problem-name{
+    color:white;
+    font-weight:600;
+
+    margin-bottom:8px;
+}
+
+.solve-button{
+    background:var(--blue);
+
+    color:white;
+
+    text-decoration:none;
+
+    padding:10px 22px;
+
+    border-radius:10px;
+
+    font-weight:600;
+
+    transition:0.2s;
+}
+
+.solve-button:hover{
+    opacity:0.85;
 }

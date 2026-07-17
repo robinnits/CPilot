@@ -10,6 +10,7 @@ function SkillCard({ focusAnalysis }) {
                 Skill Analysis
             </h2>
 
+            <div className="skill-columns">
             <div className="skill-section">
 
                 <h3 className="skill-section-title">
@@ -116,6 +117,7 @@ function SkillCard({ focusAnalysis }) {
                     ))
                 }
 
+            </div>
             </div>
 
         </div>
