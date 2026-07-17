@@ -1064,6 +1064,7 @@ white-space:nowrap;
 
 .training-skill-card{
     align-self:start;
+    margin:0 auto;
 }
 
 .recommendation-section{
