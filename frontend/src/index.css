@@ -1349,6 +1349,12 @@ white-space:nowrap;
 }
 
 .solve-button{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:6px;
     background:var(--blue);
 
     color:whitesmoke;
@@ -1366,5 +1372,8 @@ white-space:nowrap;
 }
 
 .solve-button:hover{
-    opacity:0.85;
+    transform:translateY(-2px);
+
+    box-shadow:0 6px 16px rgba(47,129,247,.25);
+
 }

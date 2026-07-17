@@ -1,3 +1,5 @@
+import { ExternalLink } from "lucide-react";
+
 function RecommendationCard({ recommendations }) {
 
     if (!recommendations) return null;
@@ -9,6 +11,10 @@ function RecommendationCard({ recommendations }) {
             <h2 className="training-card-title">
                 Recommended Problems
             </h2>
+
+            <p className="training-subtitle">
+                Curated problems based on your weak topics and current Codeforces rating.
+            </p>
 
             <div className="recommendation-grid">
 
@@ -28,7 +34,7 @@ function RecommendationCard({ recommendations }) {
                                 </h3>
 
                                 <span className="topic-count">
-                                    {problems.length} {problems.length === 1 ? "Problem" : "Problems"}                                </span>
+                                    {problems.length} {problems.length === 1 ? "Pick" : "Picks"}                                </span>
 
                             </div>
 
@@ -72,6 +78,7 @@ function RecommendationCard({ recommendations }) {
                                             className="solve-button"
                                         >
                                             Solve
+                                            <ExternalLink size={15}/>
                                         </a>
 
                                     </div>
