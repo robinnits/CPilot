@@ -10,7 +10,7 @@ function PerformanceSection({ analytics }) {
         <div className="performance-card">
 
 
-            <h2>
+            <h2 className="performance-card-title">
                 Performance Analytics
             </h2>
 
