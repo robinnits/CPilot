@@ -7,8 +7,11 @@ function SkillCard({ focusAnalysis }) {
         <div className="card training-skill-card">
 
             <h2 className="training-card-title">
-                Skill Analysis
+                Training Insights
             </h2>
+            <p className="training-subtitle">
+                Personalized focus areas based on your recent Codeforces performance.
+            </p>
 
             <div className="skill-columns">
             <div className="skill-section">
@@ -31,30 +34,30 @@ function SkillCard({ focusAnalysis }) {
                                     {skill.skill}
                                 </span>
 
-                                <span className="skill-score">
-                                    {skill.score}/100
-                                </span>
+                                <div className="skill-meta">
+
+                                    <span className="skill-score">
+                                        {skill.score}/100
+                                    </span>
+
+                                    <span
+                                        className={`skill-level-badge ${skill.level.toLowerCase()}`}
+                                    >
+                                        {skill.level}
+                                    </span>
+
+                                </div>
 
                             </div>
 
-                                                        <div className="skill-progress-bar">
+                            <div className="skill-progress-bar">
 
                                 <div
                                     className={`skill-progress-fill ${skill.level.toLowerCase()}`}
                                     style={{
-                                        width: `${skill.score}%`
+                                        width:`${skill.score}%`
                                     }}
                                 />
-
-                            </div>
-
-                            <div className="skill-bottom-row">
-
-                                <span
-                                    className={`skill-level ${skill.level.toLowerCase()}`}
-                                >
-                                    {skill.level}
-                                </span>
 
                             </div>
 
@@ -85,30 +88,30 @@ function SkillCard({ focusAnalysis }) {
                                     {skill.skill}
                                 </span>
 
-                                <span className="skill-score">
-                                    {skill.score}/100
-                                </span>
+                                <div className="skill-meta">
+
+                                    <span className="skill-score">
+                                        {skill.score}/100
+                                    </span>
+
+                                    <span
+                                        className={`skill-level-badge ${skill.level.toLowerCase()}`}
+                                    >
+                                        {skill.level}
+                                    </span>
+
+                                </div>
 
                             </div>
 
-                                                        <div className="skill-progress-bar">
+                            <div className="skill-progress-bar">
 
                                 <div
                                     className={`skill-progress-fill ${skill.level.toLowerCase()}`}
                                     style={{
-                                        width: `${skill.score}%`
+                                        width:`${skill.score}%`
                                     }}
                                 />
-
-                            </div>
-
-                            <div className="skill-bottom-row">
-
-                                <span
-                                    className={`skill-level ${skill.level.toLowerCase()}`}
-                                >
-                                    {skill.level}
-                                </span>
 
                             </div>
 

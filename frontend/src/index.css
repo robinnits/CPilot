@@ -1010,7 +1010,7 @@ white-space:nowrap;
 }
 
 .training-page{
-    width:97%;
+    width:100%;
     max-width:1700px;
     margin:16px auto;
 }
@@ -1020,8 +1020,8 @@ white-space:nowrap;
     grid-template-columns:1fr 1fr;
     gap:24px;
 
-    width:90%;
-    max-width:1500px;
+    width:100%;
+    max-width:1700px;
 
     margin:0 auto 24px auto;
 }
@@ -1042,6 +1042,22 @@ white-space:nowrap;
     gap:25px;
 }
 
+.training-card-title{
+    margin-bottom:28px;
+}
+
+.training-subtitle{
+
+    margin-top:-24px;
+
+    margin-bottom:28px;
+
+    color:#9ca3af;
+
+    font-size:14px;
+
+}
+
 .training-skill-card{
     align-self:start;
 }
@@ -1051,10 +1067,10 @@ white-space:nowrap;
 }
 
 .skill-progress-bar{
-    width:85%;
+    width:100%;
     height:8px;
 
-    background:#2f2f2f;
+    background: #454545;;
 
     border-radius:999px;
 
@@ -1082,7 +1098,7 @@ white-space:nowrap;
 }
 
 .skill-item{
-    padding:16px 0;
+    padding:6px 0;
     border-bottom:1px solid #303030;
 }
 
@@ -1110,23 +1126,23 @@ white-space:nowrap;
     font-size:15px;
 }
 
-.skill-bottom-row{
-    margin-top:10px;
-}
-
 .skill-section-title{
     font-size:20px;
     font-weight:700;
 
-    margin-top:30px;
-    margin-bottom:20px;
-
+    margin:0 0 24px 0;
     color:white;
 }
 
-.skill-section:first-child
-.skill-section-title{
-    margin-top:0;
+
+.skill-meta{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
 }
 
 .problem-meta{
@@ -1169,7 +1185,47 @@ white-space:nowrap;
     gap:18px;
 }
 
+.skill-level-badge{
+
+    padding:4px 10px;
+
+    border-radius:999px;
+
+    font-size:12px;
+
+    font-weight:600;
+
+}
+
+.skill-level-badge.weak{
+
+    background:#4d2323;
+
+    color:#ff6b6b;
+
+}
+
+.skill-level-badge.average{
+
+    background:#4b3817;
+
+    color:#ffb547;
+
+}
+
+.skill-level-badge.strong{
+
+    background:#193822;
+
+    color:#4ade80;
+
+}
+
 .skill-section{
+
+    display:flex;
+
+    flex-direction:column;
 
     background:#2d2d2d;
 
@@ -1266,7 +1322,7 @@ white-space:nowrap;
 .solve-button{
     background:var(--blue);
 
-    color:white;
+    color:whitesmoke;
 
     text-decoration:none;
 
