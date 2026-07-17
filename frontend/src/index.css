@@ -1054,7 +1054,7 @@ white-space:nowrap;
 
     margin-top:-24px;
 
-    margin-bottom:28px;
+    margin-bottom:10px;
 
     color:#9ca3af;
 
@@ -1158,7 +1158,7 @@ white-space:nowrap;
 }
 
 .problem-rating{
-    color:#9ca3af;
+    color:rgba(255,255,255,.75);
 }
 
 .problem-zone{
@@ -1284,7 +1284,11 @@ white-space:nowrap;
 
 .recommendation-topic-card:hover{
 
-    transform:translateY(-4px);
+    transform:translateY(-3px);
+
+    border-color:#4b5563;
+
+    transition:.2s;
 
 
 }
@@ -1293,7 +1297,7 @@ white-space:nowrap;
 
     margin: 0;
     font-size:20px;
-    font-weight:700;
+    font-weight:6500;
 
     margin-bottom:18px;
 
@@ -1375,5 +1379,27 @@ white-space:nowrap;
     transform:translateY(-2px);
 
     box-shadow:0 6px 16px rgba(47,129,247,.25);
+
+}
+
+.section-header{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:14px;
+
+    margin-bottom:28px;
+
+}
+
+.section-icon{
+
+    color:#d1d5db;
+
+    margin-top:8px;
+
+    flex-shrink:0;
 
 }

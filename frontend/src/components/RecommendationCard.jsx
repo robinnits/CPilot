@@ -1,4 +1,4 @@
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, Rocket } from "lucide-react";
 
 function RecommendationCard({ recommendations }) {
 
@@ -8,13 +8,26 @@ function RecommendationCard({ recommendations }) {
 
         <div className="recommendation-wrapper">
 
-            <h2 className="training-card-title">
-                Recommended Problems
-            </h2>
+            <div className="section-header">
 
-            <p className="training-subtitle">
-                Curated problems based on your weak topics and current Codeforces rating.
-            </p>
+                <Rocket
+                    size={24}
+                    className="section-icon recommendation-icon"
+                />
+
+                <div>
+
+                    <h2 className="training-card-title">
+                        Recommended Problems
+                    </h2>
+
+                    <p className="training-subtitle">
+                        Curated problems based on your weak topics and current Codeforces rating.
+                    </p>
+
+                </div>
+
+            </div>
 
             <div className="recommendation-grid">
 

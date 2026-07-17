@@ -1,3 +1,5 @@
+import { Target } from "lucide-react";
+
 function SkillCard({ focusAnalysis }) {
 
     if (!focusAnalysis) return null;
@@ -6,12 +8,26 @@ function SkillCard({ focusAnalysis }) {
 
         <div className="card training-skill-card">
 
-            <h2 className="training-card-title">
-                Training Insights
-            </h2>
-            <p className="training-subtitle">
-                Personalized focus areas based on your recent Codeforces performance.
-            </p>
+            <div className="section-header">
+
+                <Target
+                    size={24}
+                    className="section-icon training-icon"
+                />
+
+                <div>
+
+                    <h2 className="training-card-title">
+                        Training Insights
+                    </h2>
+
+                    <p className="training-subtitle">
+                        Personalized focus areas based on your recent Codeforces performance.
+                    </p>
+
+                </div>
+
+            </div>
 
             <div className="skill-columns">
             <div className="skill-section">
