@@ -1010,7 +1010,9 @@ white-space:nowrap;
 }
 
 .training-page{
-    width:100%;
+    width:97%;
+    max-width:1700px;
+    margin:16px auto;
 }
 
 .training-grid{
@@ -1029,9 +1031,9 @@ white-space:nowrap;
     cursor:not-allowed;
 }
 .training-page{
-    width:90%;
-    max-width:1500px;
-    margin:30px auto;
+    width:100%;
+    max-width:1700px;
+    margin:20px auto;
 }
 
 .training-content{
@@ -1058,8 +1060,8 @@ white-space:nowrap;
 
     overflow:hidden;
 
-    margin-top:10px;
-    margin-bottom:10px;
+    margin-top:8px;
+    margin-bottom:8px;
 }
 
 .skill-progress-fill{
@@ -1080,7 +1082,7 @@ white-space:nowrap;
 }
 
 .skill-item{
-    padding:22px 0;
+    padding:16px 0;
     border-bottom:1px solid #303030;
 }
 
@@ -1097,7 +1099,7 @@ white-space:nowrap;
 }
 
 .skill-name{
-    font-size:18px;
+    font-size:16px;
     color:white;
     font-weight:600;
     text-transform:capitalize;
@@ -1105,7 +1107,7 @@ white-space:nowrap;
 
 .skill-score{
     color:#9ca3af;
-    font-size:16px;
+    font-size:15px;
 }
 
 .skill-bottom-row{
@@ -1113,7 +1115,7 @@ white-space:nowrap;
 }
 
 .skill-section-title{
-    font-size:24px;
+    font-size:20px;
     font-weight:700;
 
     margin-top:30px;
@@ -1164,7 +1166,7 @@ white-space:nowrap;
 .skill-columns{
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:50px;
+    gap:18px;
 }
 
 .skill-section{
@@ -1175,7 +1177,7 @@ white-space:nowrap;
 
     border-radius:18px;
 
-    padding:34px;
+    padding:24px;
 
 }
 
@@ -1183,15 +1185,15 @@ white-space:nowrap;
 
     width:90%;
 
-    max-width:1500px;
+    max-width:none;
 
-    margin:25px auto;
+    margin:0 auto;
 
     background:var(--bg-card);
 
     border-radius:12px;
 
-    padding:34px;
+    padding:26px;
 }
 
 .recommendation-grid{
@@ -1227,7 +1229,7 @@ white-space:nowrap;
 }
 
 .topic-title{
-    font-size:28px;
+    font-size:20px;
     font-weight:700;
 
     margin-bottom:28px;
@@ -1254,6 +1256,7 @@ white-space:nowrap;
 }
 
 .problem-name{
+    font-size:15px;
     color:white;
     font-weight:600;
 
@@ -1267,7 +1270,8 @@ white-space:nowrap;
 
     text-decoration:none;
 
-    padding:10px 22px;
+    padding:8px 18px;
+    font-size:14px;
 
     border-radius:10px;
 
