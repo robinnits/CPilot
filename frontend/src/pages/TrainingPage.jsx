@@ -3,31 +3,26 @@ import RecommendationCard from "../components/RecommendationCard";
 
 function TrainingPage({ analytics }) {
 
-    const overview = {
-        priorityTopic: "Graphs",
-        weakTopics: 5,
-        suggestedProblems: 27,
-        targetDifficulty: "1300-1400"
-    };
-
     return (
+
         <div className="training-page">
 
-            <div className="training-top-grid">
+            <div className="training-content">
 
                 <SkillCard
                     focusAnalysis={analytics.focusAnalysis}
                 />
 
+                <RecommendationCard
+                    recommendations={analytics.recommendations}
+                />
 
             </div>
 
-            <RecommendationCard
-                recommendations={analytics.recommendations}
-            />
-
         </div>
+
     );
+
 }
 
 export default TrainingPage;

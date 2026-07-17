@@ -1029,15 +1029,15 @@ white-space:nowrap;
     cursor:not-allowed;
 }
 .training-page{
-    width:100%;
-}
-
-.training-top-grid{
     width:90%;
     max-width:1500px;
+    margin:30px auto;
+}
 
-    margin:25px auto;
-    display: block;
+.training-content{
+    display:flex;
+    flex-direction:column;
+    gap:25px;
 }
 
 .training-skill-card{
@@ -1223,7 +1223,6 @@ white-space:nowrap;
 
     transform:translateY(-4px);
 
-    /* border-color:#4f7fff; */
 
 }
 
