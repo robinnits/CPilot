@@ -156,10 +156,21 @@ function App(){
                         />
 
                         {
-                            loading &&
-                            <h3>
-                                Analyzing profile...
-                            </h3>
+                            loading && (
+                                <div className="loading-state">
+
+                                    <div className="loading-spinner"></div>
+
+                                    <div className="loading-content">
+
+                                        <h3>Analyzing {document.querySelector("input")?.value || "profile"}</h3>
+
+                                        <p>Fetching submissions and generating insights...</p>
+
+                                    </div>
+
+                                </div>
+                            )
                         }
 
                         {
