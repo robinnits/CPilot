@@ -1,4 +1,3 @@
-import { Github, Linkedin, ExternalLink } from "lucide-react";
 import "../styles/Footer.css";
 
 function Footer() {
@@ -38,7 +37,7 @@ function Footer() {
                             target="_blank"
                             rel="noreferrer"
                         >
-                            <Github size={18} />
+                            {/* <Globe size={18} /> */}
                             GitHub
                         </a>
 
@@ -47,7 +46,7 @@ function Footer() {
                             target="_blank"
                             rel="noreferrer"
                         >
-                            <Linkedin size={18} />
+                            {/* <Globe size={18} /> */}
                             LinkedIn
                         </a>
 
@@ -56,7 +55,7 @@ function Footer() {
                             target="_blank"
                             rel="noreferrer"
                         >
-                            <ExternalLink size={18} />
+                            {/* <ExternalLink size={18} /> */}
                             Codeforces
                         </a>
 

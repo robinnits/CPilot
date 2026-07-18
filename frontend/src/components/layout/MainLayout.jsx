@@ -1,5 +1,5 @@
 import Sidebar from "./Sidebar";
-import Footer from "./Footer";
+import Footer from "../Footer";
 
 function MainLayout({
     children,
