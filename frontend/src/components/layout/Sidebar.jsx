@@ -56,6 +56,11 @@ function Sidebar({
                 </div>
             )}
 
+            <div className="sidebar-version">
+    <div className="app-name">CPilot</div>
+    <div className="version">v1.0.0</div>
+</div>
+
         </div>
     );
 }

@@ -1023,8 +1023,9 @@ white-space:nowrap;
 
 .sidebar-profile{
     margin-top:auto;
+    margin-bottom: -18px;
 
-    padding:18px 0 30px;
+    padding:12px 0 0px;
 
     border-top:1px solid #2f2f2f;
 
@@ -1178,6 +1179,41 @@ white-space:nowrap;
     overflow:hidden;
     flex:1;
     min-width:0;
+}
+
+.sidebar-version {
+    margin-top: 14px;
+    padding-top: 6px;
+    margin-bottom: -24px;
+    border-top: 1px solid var(--border);
+
+    text-align: center;
+}
+
+.sidebar-version .app-name {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: 0.5px;
+}
+
+.sidebar-version .version {
+    margin-top: 2px;
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.version {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 3px 10px;
+    border-radius: 999px;
+
+    background: rgba(59,130,246,.12);
+    color: var(--blue);
+
+    font-size: 11px;
+    font-weight: 600;
 }
 
 
