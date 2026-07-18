@@ -1250,11 +1250,11 @@ white-space:nowrap;
 .training-content{
     display:flex;
     flex-direction:column;
-    gap:25px;
+    gap:5px;
 }
 
 .training-card-title{
-    margin-bottom:28px;
+    margin-bottom:20px;
 }
 
 .training-subtitle{
@@ -1587,7 +1587,7 @@ white-space:nowrap;
 
     gap:14px;
 
-    margin-bottom:28px;
+    margin-bottom:20px;
 
 }
 
