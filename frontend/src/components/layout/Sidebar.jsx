@@ -1,4 +1,4 @@
-import { BarChart3, BrainCircuit } from "lucide-react";
+import { Activity, BrainCircuit } from "lucide-react";
 
 function Sidebar({
     activePage,
@@ -9,12 +9,12 @@ function Sidebar({
 
     return (
         <div className="sidebar">
-
+            <div className="sidebar-nav">
             <button
                 className={activePage === "analytics" ? "active" : ""}
                 onClick={() => setActivePage("analytics")}
             >
-                <BarChart3 size={18} />
+                <Activity size={18} />
                 <span>Analytics</span>
             </button>
 
@@ -26,6 +26,7 @@ function Sidebar({
                 <BrainCircuit size={18} />
                 <span>Training</span>
             </button>
+            </div>
 
             {user && (
                 <div className="sidebar-profile">
