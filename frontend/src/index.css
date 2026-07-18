@@ -998,6 +998,8 @@ white-space:nowrap;
 
 .main-content{
     flex:1;
+    height:100vh;
+    overflow-y:auto;
 }
 
 .sidebar{
@@ -1011,6 +1013,12 @@ white-space:nowrap;
 
     display:flex;
     flex-direction:column;
+    position: sticky;
+    top: 0;
+
+    height: 100vh;
+
+    overflow: hidden;
 }
 
 .training-page{

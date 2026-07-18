@@ -1,3 +1,5 @@
+import { BarChart3, BrainCircuit } from "lucide-react";
+
 function Sidebar({
     activePage,
     setActivePage,
@@ -18,7 +20,7 @@ function Sidebar({
                     setActivePage("analytics")
                 }
             >
-                Analytics
+                <BarChart3 size={18}/>Analytics
             </button>
 
             <button
@@ -34,7 +36,7 @@ function Sidebar({
                     setActivePage("training")
                 }
             >
-                Training Center
+                <BrainCircuit size={18}/>Training Center
             </button>
 
         </div>
