@@ -4,69 +4,61 @@ function Footer() {
     return (
         <footer className="footer">
 
-            <div className="footer-content">
+            <div className="footer-top">
 
-                <div className="footer-brand">
-                    <h2>CPilot</h2>
+                <div className="footer-left">
 
-                    <p>
-                        Analyze your performance.
-                        Discover weaknesses.
-                        Solve smarter.
-                    </p>
-                </div>
+                    <div className="footer-title">
+                        Built by
+                    </div>
 
-                <div className="footer-divider"></div>
-
-                <div className="footer-developer">
-
-                    <h3>Built by</h3>
-
-                    <p className="developer-name">
+                    <div className="footer-name">
                         Robin Poddar
-                    </p>
-
-                    <p className="developer-college">
-                        National Institute of Technology Silchar
-                    </p>
+                    </div>
 
                     <div className="footer-links">
-
                         <a
                             href="https://github.com/robinnits"
                             target="_blank"
                             rel="noreferrer"
                         >
-                            {/* <Globe size={18} /> */}
                             GitHub
                         </a>
 
+                        <span>•</span>
+
                         <a
-                            href="https://www.linkedin.com/"
+                            href="https://www.linkedin.com/in/robinpoddar07/"
                             target="_blank"
                             rel="noreferrer"
                         >
-                            {/* <Globe size={18} /> */}
                             LinkedIn
                         </a>
-
-                        <a
-                            href="https://codeforces.com/profile/robinpoddar"
-                            target="_blank"
-                            rel="noreferrer"
-                        >
-                            {/* <ExternalLink size={18} /> */}
-                            Codeforces
-                        </a>
-
                     </div>
 
                 </div>
 
-                <div className="footer-bottom">
-                    © 2026 CPilot • v1.0.0
+                <div className="footer-right">
+
+                    <div className="footer-title">
+                        Contact
+                    </div>
+
+                    <a
+                        href="mailto:robinpoddar2003@gmail.com"
+                        className="footer-email"
+                    >
+                        robinpoddar2003@gmail.com
+                    </a>
+
                 </div>
 
+            </div>
+
+            <div className="footer-divider"></div>
+
+            <div className="footer-bottom">
+                © 2026 CPilot • v1.0.0
             </div>
 
         </footer>

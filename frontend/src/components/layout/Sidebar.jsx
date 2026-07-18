@@ -28,38 +28,37 @@ function Sidebar({
             </button>
             </div>
 
-            {user && (
-                <div className="sidebar-profile">
+            <div className="sidebar-bottom">
 
-                    <img
-                        src={user.avatar}
-                        alt={user.handle}
-                        className="sidebar-avatar"
-                    />
+                {user && (
+                    <div className="sidebar-profile">
 
-                    <div className="sidebar-user-info">
+                        <img
+                            src={user.avatar}
+                            alt={user.handle}
+                            className="sidebar-avatar"
+                        />
 
-                        <div className="sidebar-name">
-                            {user.handle}
-                        </div>
+                        <div className="sidebar-user-info">
 
-                        <div
-                            className={`sidebar-rank ${user.rank
-                                .replace(/\s+/g, "-")
-                                .toLowerCase()}`}
-                        >
-                            {user.rank}
+                            <div className="sidebar-name">
+                                {user.handle}
+                            </div>
+
+                            <div
+                                className={`sidebar-rank ${user.rank
+                                    .replace(/\s+/g, "-")
+                                    .toLowerCase()}`}
+                            >
+                                {user.rank}
+                            </div>
+
                         </div>
 
                     </div>
+                )}
 
-                </div>
-            )}
-
-            <div className="sidebar-version">
-    <div className="app-name">CPilot</div>
-    <div className="version">v1.0.0</div>
-</div>
+            </div>
 
         </div>
     );
