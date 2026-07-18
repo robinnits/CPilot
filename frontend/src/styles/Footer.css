@@ -1,0 +1,101 @@
+.footer{
+    margin-top:60px;
+
+    background:var(--surface);
+
+    border-top:1px solid var(--border);
+
+    padding:56px 40px 30px;
+}
+
+.footer-content{
+    max-width:1100px;
+    margin:0 auto;
+}
+
+.footer-brand h2{
+    font-size:32px;
+    margin-bottom:14px;
+
+    color:var(--text-primary);
+}
+
+.footer-brand p{
+    max-width:520px;
+
+    color:var(--text-secondary);
+
+    line-height:1.8;
+}
+
+.footer-divider{
+    margin:40px 0;
+
+    height:1px;
+
+    background:var(--border);
+}
+
+.footer-developer h3{
+    color:var(--text-secondary);
+
+    font-size:15px;
+
+    margin-bottom:8px;
+}
+
+.developer-name{
+    font-size:22px;
+
+    font-weight:700;
+
+    color:var(--text-primary);
+}
+
+.developer-college{
+    margin-top:4px;
+
+    color:var(--text-secondary);
+}
+
+.footer-links{
+    display:flex;
+
+    gap:28px;
+
+    margin-top:24px;
+
+    flex-wrap:wrap;
+}
+
+.footer-links a{
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    color:var(--text-secondary);
+
+    text-decoration:none;
+
+    transition:.25s;
+}
+
+.footer-links a:hover{
+    color:var(--blue);
+}
+
+.footer-bottom{
+    margin-top:42px;
+
+    padding-top:24px;
+
+    border-top:1px solid var(--border);
+
+    text-align:center;
+
+    color:var(--text-secondary);
+
+    font-size:14px;
+}

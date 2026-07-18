@@ -1,4 +1,5 @@
 import Sidebar from "./Sidebar";
+import Footer from "./Footer";
 
 function MainLayout({
     children,
@@ -22,6 +23,8 @@ function MainLayout({
             <main className="main-content">
 
                 {children}
+
+                <Footer />
 
             </main>
 
