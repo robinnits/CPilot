@@ -1269,11 +1269,6 @@ white-space:nowrap;
 
 }
 
-.training-skill-card{
-    align-self:start;
-    margin:0 auto;
-}
-
 .recommendation-section{
     width:100%;
 }
@@ -1450,17 +1445,12 @@ white-space:nowrap;
 }
 
 .recommendation-wrapper{
-
     width:90%;
-
-    max-width:none;
-
+    max-width:1500px;
     margin:0 auto;
 
     background:var(--bg-card);
-
     border-radius:12px;
-
     padding:26px;
 }
 
