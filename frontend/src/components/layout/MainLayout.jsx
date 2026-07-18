@@ -4,7 +4,8 @@ function MainLayout({
     children,
     activePage,
     setActivePage,
-    analytics
+    analytics,
+    user
 }){
 
     return(
@@ -15,6 +16,7 @@ function MainLayout({
                 activePage={activePage}
                 setActivePage={setActivePage}
                 analytics={analytics}
+                user = {user}
             />
 
             <main className="main-content">

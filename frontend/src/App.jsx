@@ -135,6 +135,7 @@ function App(){
             activePage={activePage}
             setActivePage={setActivePage}
             analytics={analytics}
+            user={user}
         >
 
             {

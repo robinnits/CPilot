@@ -1021,6 +1021,69 @@ white-space:nowrap;
     overflow: hidden;
 }
 
+.sidebar-profile{
+    margin-top:auto;
+
+    padding-top:20px;
+
+    border-top:1px solid #2f2f2f;
+
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.sidebar-avatar{
+    width:38px;
+    height:38px;
+
+    border-radius:50%;
+}
+
+.sidebar-name{
+    color:white;
+    font-size:13px;
+    font-weight:600;
+}
+
+.sidebar-rank{
+    font-size:12px;
+}
+
+.sidebar-rank.newbie{
+    color:#808080;
+}
+
+.sidebar-rank.pupil{
+    color:#008000;
+}
+
+.sidebar-rank.specialist{
+    color:#03A89E;
+}
+
+.sidebar-rank.expert{
+    color:#0000FF;
+}
+
+.sidebar-rank.candidate-master{
+    color:#AA00AA;
+}
+
+.sidebar-rank.master{
+    color:#FF8C00;
+}
+
+.sidebar-rank.international-master{
+    color:#FF8C00;
+}
+
+.sidebar-rank.grandmaster,
+.sidebar-rank.international-grandmaster,
+.sidebar-rank.legendary-grandmaster{
+    color:#FF3333;
+}
+
 .training-page{
     width:100%;
     max-width:1700px;
@@ -1042,6 +1105,40 @@ white-space:nowrap;
     opacity:0.45;
     cursor:not-allowed;
 }
+
+.sidebar button{
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    width:100%;
+
+    padding:12px 14px;
+
+    border:none;
+    background:transparent;
+
+    color:#cfcfcf;
+
+    border-radius:10px;
+
+    transition:.2s;
+}
+
+.sidebar button.active{
+    background:#2F81F7;
+    color:white;
+}
+
+.sidebar button svg{
+    flex-shrink:0;
+}
+
+.sidebar-user-info{
+    overflow:hidden;
+}
+
+
 .training-page{
     width:100%;
     max-width:1700px;
