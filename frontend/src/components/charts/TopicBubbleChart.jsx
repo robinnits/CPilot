@@ -11,16 +11,20 @@ function TopicBubbleChart({ tagStats }) {
 
 
 
-    const data =
-    Object.entries(tagStats || {})
-    .map(([name,value])=>({
-
+    const data = Object.entries(tagStats || {})
+    .filter(([name, value]) =>
+        typeof name === "string" &&
+        name.trim() !== "" &&
+        typeof value === "number" &&
+        !Number.isNaN(value) &&
+        value > 0
+    )
+    .map(([name, value]) => ({
         name,
-        value
-
+        value,
     }))
-    .sort((a,b)=>b.value-a.value)
-    .slice(0,25);
+    .sort((a, b) => b.value - a.value)
+    .slice(0, 25);
 
 
 
@@ -45,7 +49,7 @@ function TopicBubbleChart({ tagStats }) {
             children:data
 
         })
-        .sum(d=>Math.sqrt(d.value));
+        .sum(d => Math.sqrt(d.value || 1))
 
 
 
@@ -175,8 +179,7 @@ function TopicBubbleChart({ tagStats }) {
             d3.select(this);
 
 
-            const words =
-            d.data.name.split(" ");
+            const words = String(d.data.name || "Unknown").split(" ");
 
 
 
