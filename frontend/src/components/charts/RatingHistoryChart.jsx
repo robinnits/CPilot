@@ -23,12 +23,47 @@ function RatingHistoryChart({ ratingHistory }) {
         ...ratingHistory.map(x => x.newRating)
     );
 
-    const firstRating = ratingHistory[0].newRating;
+    const contestCount = ratingHistory.length;
+
+    const rankLines = [
+        { y: 1200, label: "Pupil", color: "#008000" },
+        { y: 1400, label: "Specialist", color: "#03A89E" },
+        { y: 1600, label: "Expert", color: "#0000FF" },
+        { y: 1900, label: "Candidate Master", color: "#AA00AA" },
+        { y: 2100, label: "Master", color: "#FF8C00" },
+        { y: 2300, label: "International Master", color: "#FF8C00" },
+        { y: 2400, label: "Grandmaster", color: "#FF0000" },
+        { y: 2600, label: "International Grandmaster", color: "#FF0000" },
+        { y: 3000, label: "Legendary Grandmaster", color: "#FF0000" },
+    ];
 
     const currentRating =
         ratingHistory[ratingHistory.length - 1].newRating;
 
-    const gained = currentRating - firstRating;
+    const currentIndex = rankLines.findIndex((line, index) => {
+        const next = rankLines[index + 1];
+
+        return !next || currentRating < next.y;
+    });
+
+    const lastVisibleIndex = Math.min(
+    currentIndex + 2,
+    rankLines.length - 1
+    );
+
+    const visibleRankLines = rankLines.slice(
+    0,
+    lastVisibleIndex + 1
+    );
+
+    const highestVisibleLine =
+        visibleRankLines[visibleRankLines.length - 1].y;
+
+    const chartMax =
+        Math.max(
+            peak + 150,
+            highestVisibleLine + 200
+        );
 
     // ---------- Custom Tooltip ----------
     const CustomTooltip = ({ active, payload, label }) => {
@@ -109,8 +144,7 @@ function RatingHistoryChart({ ratingHistory }) {
                     </span>
 
                     <span>
-                        {gained >= 0 ? "+" : ""}
-                        {gained} gained
+                        {contestCount} Contests
                     </span>
 
                 </div>
@@ -131,31 +165,20 @@ function RatingHistoryChart({ ratingHistory }) {
                         opacity={0.15}
                     />
 
-                    {/* Rank milestones */}
-
-                    <ReferenceLine
-                        y={1200}
-                        label="Pupil"
-                        stroke="#00C853"
-                    />
-
-                    <ReferenceLine
-                        y={1400}
-                        label="Specialist"
-                        stroke="#03A9F4"
-                    />
-
-                    <ReferenceLine
-                        y={1600}
-                        label="Expert"
-                        stroke="#AA00FF"
-                    />
-
-                    <ReferenceLine
-                        y={2100}
-                        label="Master"
-                        stroke="#FFB300"
-                    />
+                    {visibleRankLines.map(rank => (
+                        <ReferenceLine
+                            key={rank.label}
+                            y={rank.y}
+                            stroke={rank.color}
+                            strokeOpacity={0.65}
+                            label={{
+                                value: rank.label,
+                                position: "insideTopRight",
+                                fill: rank.color,
+                                fontSize: 13,
+                            }}
+                        />
+                    ))}
 
                     <XAxis
                         dataKey="date"
@@ -165,7 +188,7 @@ function RatingHistoryChart({ ratingHistory }) {
 
                     <YAxis
                         stroke="#999"
-                        domain={[0, "dataMax + 200"]}
+                        domain={[0, chartMax]}
                         ticks={[
                             0,
                             800,
@@ -174,6 +197,7 @@ function RatingHistoryChart({ ratingHistory }) {
                             1600,
                             1900,
                             2100,
+                            2300,
                             2400,
                             2600,
                             3000
