@@ -46,11 +46,13 @@ function Sidebar({
                             </div>
 
                             <div
-                                className={`sidebar-rank ${user.rank
-                                    .replace(/\s+/g, "-")
-                                    .toLowerCase()}`}
+                                className={`sidebar-rank ${
+                                    (user.rank || "unrated")
+                                        .replace(/\s+/g, "-")
+                                        .toLowerCase()
+                                }`}
                             >
-                                {user.rank}
+                                {user.rank || "Unrated"}
                             </div>
 
                         </div>
