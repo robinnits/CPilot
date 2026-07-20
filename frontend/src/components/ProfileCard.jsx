@@ -18,23 +18,17 @@ const displayMaxRating = Math.max(
 
 
 
-const getRankColor = (rating)=>{
+const getRankColor = (rating) => {
 
-
-    if(!rating) return "#808080";
-
-    if(rating < 1200) return "#808080";
-
-    if(rating < 1400) return "#00C853";
-
-    if(rating < 1600) return "#03A9F4";
-
-    if(rating < 1900) return "#AA00FF";
-
-    if(rating < 2400) return "#FF8C00";
-
-    return "#FF3333";
-
+    if (rating == null) return "#808080";          // Unrated / Newbie
+    if (rating < 1200) return "#808080";           // Newbie
+    if (rating < 1400) return "#008000";           // Pupil
+    if (rating < 1600) return "#03A89E";           // Specialist
+    if (rating < 1900) return "#0000FF";           // Expert
+    if (rating < 2100) return "#AA00AA";           // Candidate Master
+    if (rating < 2300) return "#FF8C00";           // Master
+    if (rating < 2400) return "#FF8C00";           // International Master
+    return "#FF3333";                              // GM+
 };
 
 
