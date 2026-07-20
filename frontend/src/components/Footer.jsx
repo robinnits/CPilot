@@ -45,10 +45,10 @@ function Footer() {
                     </div>
 
                     <a
-                        href="mailto:robinpoddar2003@gmail.com"
+                        href="mailto:deluffyrobin@gmail.com"
                         className="footer-email"
                     >
-                        robinpoddar2003@gmail.com
+                        deluffyrobin@gmail.com
                     </a>
 
                 </div>
