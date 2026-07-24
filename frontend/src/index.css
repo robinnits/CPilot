@@ -1610,3 +1610,21 @@ white-space:nowrap;
     flex-shrink:0;
 
 }
+
+.brand-container{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.logo{
+    width:32px;
+    height:32px;
+    flex-shrink:0;
+}
+
+.brand{
+    margin:0;
+    font-size:2rem;
+    font-weight:700;
+}

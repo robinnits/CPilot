@@ -6,24 +6,19 @@ return (
 <nav className="navbar">
 
 
-    <div>
-
+    <div className="brand-container">
+        <img
+          src="/logo.svg"
+          alt="CPilot"
+          className="logo"
+        />
 
         <h1 className="brand">
-
-            <span>C▸</span> CPilot
-
+          CPilot
         </h1>
 
-
-        {/* <p>
-
-        Your Competitive Programming Co-Pilot
-
-        </p> */}
-
-
-    </div>
+        {/* <p>Your Competitive Programming Co-Pilot</p> */}
+      </div>
 
 
 
