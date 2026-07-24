@@ -1,20 +1,19 @@
 <div align="center">
 
-<img src="frontend/public/logo-full.svg" alt="CPilot Logo" width="280"/>
+<img src="frontend/public/logo.svg" alt="CPilot Logo" width="280"/>
 
-# 🚀 CPilot
+# CPilot
 
 ### Competitive Programming Analytics Platform for Codeforces
 
 Analyze your Codeforces profile with interactive visualizations, personalized recommendations, and performance insights.
-
-🌐 **Live Demo:** https://cpilotapp.vercel.app
+**Live Demo:** https://cpilotapp.vercel.app
 
 </div>
 
 ---
 
-## 📖 Overview
+## Overview
 
 CPilot is a full-stack analytics platform designed to help competitive programmers better understand their Codeforces performance.
 
@@ -24,9 +23,9 @@ Whether you're a beginner or an experienced competitive programmer, CPilot provi
 
 ---
 
-## ✨ Features
+## Features
 
-### 📊 Analytics Dashboard
+### Analytics Dashboard
 
 - Rating Journey visualization
 - Contest statistics
@@ -36,7 +35,7 @@ Whether you're a beginner or an experienced competitive programmer, CPilot provi
 - Topic-wise performance analysis
 - Difficulty-wise solved problems
 
-### 🎯 Smart Recommendation Engine
+### Smart Recommendation Engine
 
 - Personalized problem recommendations
 - Rating-based difficulty selection
@@ -44,7 +43,7 @@ Whether you're a beginner or an experienced competitive programmer, CPilot provi
 - Balanced practice strategy
 - Skill improvement suggestions
 
-### 📈 Performance Insights
+### Performance Insights
 
 - Focus Areas
 - Strongest Topics
@@ -53,7 +52,7 @@ Whether you're a beginner or an experienced competitive programmer, CPilot provi
 - Rating Progress
 - Submission Heatmap (planned)
 
-### ⚡ Platform
+### Platform
 
 - Real-time Codeforces API integration
 - Responsive UI
@@ -62,7 +61,7 @@ Whether you're a beginner or an experienced competitive programmer, CPilot provi
 
 ---
 
-# 🖼️ Screenshots
+# Screenshots
 
 ## Home Page
 
@@ -94,7 +93,7 @@ Whether you're a beginner or an experienced competitive programmer, CPilot provi
 
 ---
 
-# 🛠️ Tech Stack
+# Tech Stack
 
 ## Frontend
 
@@ -120,7 +119,7 @@ Whether you're a beginner or an experienced competitive programmer, CPilot provi
 
 ---
 
-# 🏗️ Project Structure
+# Project Structure
 
 ```text
 CPilot
@@ -141,7 +140,7 @@ CPilot
 
 ---
 
-# 🚀 Getting Started
+# Getting Started
 
 ## Clone the Repository
 
@@ -189,20 +188,20 @@ http://localhost:5000
 
 ---
 
-# 📊 Dashboard Modules
+# Dashboard Modules
 
-- 📈 Rating Journey
-- 🧩 Problems by Rating
-- 🏷️ Tag Analysis
-- 📊 Verdict Distribution
-- 📅 Contest Statistics
-- 🌍 Language Usage
-- 🎯 Recommendation Engine
-- 🚀 Focus Areas
+- Rating Journey
+- Problems by Rating
+- Tag Analysis
+- Verdict Distribution
+- Contest Statistics
+- Tag Weakness
+- Focus Areas
+- Recommendation Engine
 
 ---
 
-# 🧠 Recommendation Engine
+# Recommendation Engine
 
 Unlike simple random recommendation systems, CPilot analyzes multiple aspects of a user's Codeforces profile before suggesting problems.
 
@@ -219,7 +218,7 @@ This enables users to receive meaningful practice recommendations tailored to th
 
 ---
 
-# 📌 Future Improvements
+# Future Improvements
 
 - Compare multiple Codeforces users
 - Contest performance prediction
@@ -232,7 +231,7 @@ This enables users to receive meaningful practice recommendations tailored to th
 
 ---
 
-# 🌍 Live Demo
+# Live Demo
 
 ## Frontend
 
@@ -244,7 +243,7 @@ https://cpilot-backend.onrender.com
 
 ---
 
-# 🤝 Contributing
+# Contributing
 
 Contributions are welcome!
 
@@ -256,7 +255,7 @@ If you have suggestions for improvements, feel free to:
 
 ---
 
-# 📬 Contact
+# Contact
 
 **Robin Poddar**
 
@@ -270,7 +269,7 @@ https://www.linkedin.com/in/robinpoddar07/
 
 ---
 
-# ⭐ Support
+# Support
 
 If you found this project useful, please consider giving it a ⭐ on GitHub.
 
