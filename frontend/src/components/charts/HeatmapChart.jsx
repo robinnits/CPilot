@@ -309,31 +309,29 @@ function HeatmapChart({ heatmapStats }) {
 
                 classForValue={(value)=>{
 
-                    if(!value){
-
-                        return "color-empty";
-
+                    if (!value) {
+                        return "cpilot-empty";
                     }
 
                     if(value.count <= 2){
 
-                        return "color-scale-1";
+                        return "cpilot-scale-1";
 
                     }
 
                     if(value.count <= 5){
 
-                        return "color-scale-2";
+                        return "cpilot-scale-2";
 
                     }
 
                     if(value.count <= 9){
 
-                        return "color-scale-3";
+                        return "cpilot-scale-3";
 
                     }
 
-                    return "color-scale-4";
+                    return "cpilot-scale-4";
 
                 }}
 
