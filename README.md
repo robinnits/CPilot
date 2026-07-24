@@ -4,6 +4,12 @@
 
 # CPilot
 
+![React](https://img.shields.io/badge/React-19-61DAFB?logo=react)
+![Node.js](https://img.shields.io/badge/Node.js-Express-339933?logo=node.js)
+![Vite](https://img.shields.io/badge/Vite-Frontend-646CFF?logo=vite)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-06B6D4?logo=tailwindcss)
+![License](https://img.shields.io/badge/License-MIT-green)
+
 ### Competitive Programming Analytics Platform for Codeforces
 
 Analyze your Codeforces profile with interactive visualizations, personalized recommendations, and performance insights.
